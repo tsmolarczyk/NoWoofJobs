@@ -5,5 +5,17 @@ html {
 }
 
 body {
-    background-color: orangered;
+    background-color: grey;
+}
+
+.job-offers {
+    display: flex;
+    justify-content: center;
+}
+
+.job-element {
+    margin: .5rem;
+    padding: .2rem;
+    border: 1px red solid;
+
 }
