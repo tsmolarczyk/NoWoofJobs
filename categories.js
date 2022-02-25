@@ -4,14 +4,15 @@ function fetchCategories() {
     getCategories('http://localhost:4000/config');
 }
     
-function getCategories(link) {
+function getCategories() {
 
   fetchData('http://localhost:4000/config')
       .then((data) => {
           console.log(data.data.categories);
         let categories = data.data.categories;
           state.categories = categories;
-
+          
+          //renderCategories();
           
         });
     }

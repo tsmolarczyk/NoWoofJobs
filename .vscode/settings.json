@@ -32,5 +32,6 @@
   "prettier.jsxSingleQuote": true,
   "emmet.triggerExpansionOnTab": true,
   "window.zoomLevel": 1,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "liveServer.settings.port": 5501
 }
