@@ -1,31 +1,24 @@
   //'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
-console.log('lets go');
 
 const jobOffers = document.querySelector(".job-offers");
 
-let state = {
-    jobs: [],
-    page: 1,
-}
-
-function fetchOffers() {
-    getJobs('http://localhost:4000/offers');
-}
 
 
-function getJobs(link) {
-  fetch(link).then(
-      (res) => res.json())
+function getJobs() {
+  const params = URLRequestParams()
+  params.set('category', 1)
+  
+  fetchData('http://localhost:4000/offers?'+params.toString())
       .then((data) => {
           console.log(data.data.records);
         let jobs = data.data.records;
-          state.jobs = jobs;
+        state.jobs = jobs;
           console.log(jobs)
-          render();
+          renderJobs();
         });
-    }
-
-function render() {
+}
+    
+function renderJobs() {
     state.jobs.forEach((job) => {
 
         //empty box
@@ -51,3 +44,6 @@ function render() {
 }
 
 fetchOffers();
+
+
+
