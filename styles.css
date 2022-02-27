@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 ::root {
   --white-txt-color: rgb(255, 255, 255);
@@ -14,6 +15,16 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--main-bg-color);
   color: var(--white-txt-color);
+}
+
+/* header */
+
+header {
+  background-color: var(--main-bg-color);
+}
+
+.nav-logo {
+  width: 7rem;
 }
 
 .job-offers {
