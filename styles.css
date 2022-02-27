@@ -1,21 +1,21 @@
 html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(255, 219, 214);
+  background-color: rgb(255, 219, 214);
 }
 
 .job-offers {
-    display: flex;
-    justify-content: center;
+  display: flex;
+
+  justify-content: center;
 }
 
 .job-element {
-    margin: .5rem;
-    padding: .2rem;
-    border: 1px red solid;
-
+  margin: 0.5rem;
+  padding: 0.2rem;
+  border: 1px red solid;
 }
