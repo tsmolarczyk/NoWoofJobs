@@ -3,17 +3,28 @@
 const jobOffers = document.querySelector(".job-offers");
 
 function getJobs() {
-  console.log('here');
-  // const params = URLRequestParams()
-  // params.set('category', 1)
-  //?+params.toString()
+  /////////////////////////////////////////////////////
+  let url = new URL('http://localhost:4000/')
+  let params = new URLSearchParams(url.search);
+  
+  console.log(url);
+  console.log(params);
+  
+  params.set('category', 1);
+  params.toString();
+/////////////////////////////////////////////////////
+
+
   fetchData('http://localhost:4000/offers').then((data) => {
-    console.log(data.data.records);
     let jobs = data.data.records;
+
+
     state.jobs = jobs;
 
+    
     console.log(jobs);
     return;
+    
     // renderJobs();
   });
 }

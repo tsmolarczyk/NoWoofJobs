@@ -8,10 +8,11 @@ function getCategories() {
 
   fetchData('http://localhost:4000/config')
       .then((data) => {
-          console.log(data.data.categories);
         let categories = data.data.categories;
           state.categories = categories;
-          
+
+        console.log(categories);
+        
           //renderCategories();
           
         });
