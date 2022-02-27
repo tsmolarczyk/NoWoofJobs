@@ -9,52 +9,58 @@ let newJob = {
   thumb: 'yes',
   company_name: 'string',
   company_city: 'string',
-  seniority_id: 'string',
-  category_ids: 'array'[(1, 2, 3)],
-  benefit_ids: 'array'[(1, 2, 3)],
-  contracts: {
-    salary_from: '1000',
-    salary_to: '2000',
-    contract_type_id: 'b2b',
-  },
+  seniority_id: 1,
+  category_ids: ['1', '2', '3'],
+  benefit_ids: ['1', '2', '3'],
+  contracts: [
+    {
+      salary_from: '1000',
+      salary_to: '2000',
+      contract_type_id: '1',
+    },
+  ],
 };
 
-function postJob() {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:4000/offers', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(
-    JSON.stringify({
-      value: value,
-    })
-  );
+function postNewJob() {
+  fetch('http://localhost:4000/offers/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newJob),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      state.jobs.push(data);
+      console.log('here');
+      console.log('Request complete! response:', res);
+    });
+}
+//id z formularza potem
+function deleteJob(id) {
+  fetch(`http://localhost:4000/offers/${id}`, {
+    method: 'DELETE',
+  }).then((res) => {
+    console.log('Request complete! response:', res);
+  });
 }
 
 function getJobs() {
-  /////////////////////////////////////////////////////
+  const params = new URLSearchParams();
 
-  let url = new URL('http://localhost:4000/');
+  params.set('category', 2);
+  params.set('limit', 100);
 
-  let params = new URLSearchParams(url.search);
+  fetchData('http://localhost:4000/offers?' + params.toString()).then(
+    (data) => {
+      let jobs = data.data.records;
 
-  console.log(url);
+      state.jobs = jobs;
 
-  console.log(params);
+      console.log(jobs);
+      return;
 
-  params.set('category', 1);
-  params.toString();
-  /////////////////////////////////////////////////////
-
-  fetchData('http://localhost:4000/offers').then((data) => {
-    let jobs = data.data.records;
-
-    state.jobs = jobs;
-
-    console.log(jobs);
-    return;
-
-    // renderJobs();
-  });
+      // renderJobs();
+    }
+  );
 }
 
 function renderJobs() {
@@ -81,3 +87,6 @@ function renderJobs() {
 }
 
 getJobs();
+deleteJob();
+
+postNewJob();

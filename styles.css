@@ -1,11 +1,19 @@
-html {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+::root {
+  --white-txt-color: rgb(255, 255, 255);
+  --main-bg-color: rgb(18, 45, 66);
+}
 
 body {
-  background-color: rgb(255, 219, 214);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--white-txt-color);
 }
 
 .job-offers {
