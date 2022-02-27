@@ -4,27 +4,71 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 62.5%;
 }
-::root {
+:root {
   --white-txt-color: rgb(255, 255, 255);
-  --main-bg-color: rgb(18, 45, 66);
+  --main-bg-color: rgb(22, 28, 46);
+  --grey-color: rgb(198, 199, 201);
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  font-size: 62.5%;
   background-color: var(--main-bg-color);
   color: var(--white-txt-color);
 }
 
-/* header */
+/****** header ******/
 
 header {
   background-color: var(--main-bg-color);
+  height: 2.5rem;
+  border-bottom: 1px solid rgb(49, 52, 57);
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 3px;
+  right: 19px;
+  z-index: 1;
+  width: 1.3rem;
+  height: 2rem;
+
+  padding: 0.1rem;
+  background-color: var(--main-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--white-txt-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  width: 100%;
+  height: 1.5px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div:after {
+  top: 5px;
 }
 
 .nav-logo {
-  width: 7rem;
+  margin-left: 2rem;
+  height: 100%;
 }
 
 .job-offers {
@@ -37,4 +81,50 @@ header {
   margin: 0.5rem;
   padding: 0.2rem;
   border: 1px red solid;
+}
+
+/****** section-search ******/
+
+.section-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 25px auto 17px;
+}
+
+.search-label {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  flex-direction: start;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid rgb(14, 25, 38);
+}
+
+.search-icon {
+  padding: 8px;
+  height: 100%;
+}
+.search-input {
+  outline: none !important;
+}
+
+.filters {
+  font-size: 14px;
+  font-weight: lighter;
+  line-height: 20px;
+  border: 1px solid white;
+  color: var(--grey-color);
+  background-color: var(--main-bg-color);
+  width: 93%;
+  height: 40px;
+  margin: 20px auto;
 }
