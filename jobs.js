@@ -30,8 +30,7 @@ function postNewJob() {
     .then((res) => res.json())
     .then((data) => {
       state.jobs.push(data);
-      console.log('here');
-      console.log('Request complete! response:', res);
+      // console.log('Request complete! response:', res);
     });
 }
 //id z formularza potem
@@ -55,7 +54,7 @@ function getJobs() {
 
       state.jobs = jobs;
 
-      console.log(jobs);
+      // console.log(...jobs);
       return;
 
       // renderJobs();
@@ -87,6 +86,5 @@ function renderJobs() {
 }
 
 getJobs();
-deleteJob();
-
-postNewJob();
+// deleteJob();
+// postNewJob();

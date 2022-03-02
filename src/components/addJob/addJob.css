@@ -1,0 +1,39 @@
+.section-add-job {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefits-para {
+  font-size: 0.9rem;
+}
+
+.section-add-job-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.section-add-job-form {
+  width: 80%;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-add-job-form > input {
+  width: 100%;
+}
+
+.btn-add {
+  margin: 0.4rem;
+  width: 200px;
+  background-color: var(--grey-color);
+  color: var(--white-txt-color);
+  border: 2px solid black;
+}
+
+.btn-add:hover {
+  background-color: var(--white-txt-color);
+  color: var(--main-bg-color);
+}

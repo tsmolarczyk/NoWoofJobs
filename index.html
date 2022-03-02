@@ -12,7 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./src/components/header/header.css" />
+    <link rel="stylesheet" href="./src/components/header/header.css" />
+    <link rel="stylesheet" href="./src/components/addJob/addJob.css" />
   </head>
 
   <body>
@@ -33,7 +37,7 @@
       </div>
     </header>
 
-    <div class="section-search">
+    <section class="section-search">
       <h1 class="welcome-text">
         Top European IT Job Board. Salary in Every Ad.
       </h1>
@@ -41,7 +45,7 @@
         <img
           class="search-icon"
           src="./no_woof_jobs IMG/search_icon.png"
-          alt="search-icon"
+          alt="img-search-icon"
         />
         <input
           class="search-input"
@@ -54,14 +58,53 @@
         <div class="symbol-filter"><div></div></div>
         Filtry
       </button>
-    </div>
-
+    </section>
+    <!-- //zmienic na sekcje -->
     <div class="job-offers"></div>
 
     <div class="categories"></div>
 
-    <script src="./fetchData.js"></script>
+    <!-- //dodac BEM -->
+    <div class="section-add-job">
+      <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
+      <form class="section-add-job-form">
+        <p>Company:</p>
+        <input type="text" />
+        <label>
+          <p>Seniority:</p>
+          <input list="seniority" name="seniority" class="input-seniority" />
+          <datalist id="seniority">
+            <option value="Junior"></option>
+            <option value="Mid"></option>
+            <option value="Senior"></option>
+          </datalist>
+        </label>
+        <p>Salary</p>
+        <input type="text" class="salary-from" />
+        <input type="text" class="salary-to" />
+        <p>Contract Type</p>
+        <input type="text" class="contract-type" />
+        <p class="benefits">Benefits</p>
+        <p class="benefits-para">Flexible Hours</p>
+        <input type="checkbox" class="flexible-hours" />
+        <p class="benefits-para">Private Healthcare</p>
+        <input type="checkbox" class="private-healthcare" />
+        <p class="benefits-para">Sport Card</p>
+        <input type="checkbox" class="sport-card" />
+        <p>Company name</p>
+        <input type="text" class="company-name" />
+        <p>Company city</p>
+        <input type="text" class="company-name" />
+        <p>Description</p>
+        <input type="text" class="description" />
+        <button class="btn-add">ADD</button>
+      </form>
+    </div>
+
     <script src="./state.js"></script>
+    <script src="main.js"></script>
+    <script src="./fetchData.js"></script>
+    <script src="./src/components/addJob/addJob.js"></script>
     <script src="./jobs.js"></script>
     <script src="./categories.js"></script>
   </body>

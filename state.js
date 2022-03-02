@@ -1,5 +1,5 @@
 let state = {
-    jobs: [],
-    page: 1,
-    categories: [],
-}
+  jobs: [],
+  page: 1,
+  config: {},
+};
