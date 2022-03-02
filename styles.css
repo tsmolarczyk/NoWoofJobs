@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 :root {
-  --white-txt-color: rgb(255, 255, 255);
   --main-bg-color: rgb(22, 28, 46);
+  --white-txt-color: rgb(255, 255, 255);
   --grey-color: rgb(198, 199, 201);
 }
 
@@ -16,14 +16,15 @@ html {
 }
 
 body {
-  font-family: 'Poppins', 'Arial', sans-serif;
   background-color: var(--main-bg-color);
   color: var(--white-txt-color);
+  font-family: 'Poppins', 'Arial', sans-serif;
 }
 
 /****** header ******/
 
 header {
+  font-family: 'Poppins', 'Arial', sans-serif;
   background-color: var(--main-bg-color);
   height: 4rem;
   border-bottom: 1px solid rgb(49, 52, 57);
@@ -94,9 +95,9 @@ header {
 }
 
 .welcome-text {
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 18px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   margin: 25px auto 17px;
 }
 
@@ -113,28 +114,79 @@ header {
 .search-icon {
   padding: 8px;
   height: 100%;
+  padding: 0.4rem;
+  margin: auto;
+  height: 80%;
+  background-color: white;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
 }
 .search-input {
   width: 100%;
   border: none;
   outline: none;
+  font-size: 2rem;
+  background-color: var(--white-color);
+  border: 0px solid;
+  outline: none;
+  margin: auto;
+  padding-left: 1rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
 }
 
 .search-input::placeholder {
-  font-family: 'Poppins', 'Arial', sans-serif;
   color: rgb(199, 199, 199);
   font-size: 1.5rem;
   font-weight: 300;
 }
 
+/* FILTER */
+
 .filters {
+  font-family: 'Poppins', 'Arial', sans-serif;
   font-size: 1.4rem;
-  font-weight: lighter;
-  line-height: 20px;
+  font-weight: 300;
+  line-height: 2rem;
   border: 1px solid white;
   color: var(--grey-color);
   background-color: var(--main-bg-color);
   width: 93%;
   height: 4rem;
   margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.symbol-filter {
+  position: relative;
+
+  left: -2.5em;
+}
+
+.symbol-filter > div {
+  position: absolute;
+  width: 1.3rem;
+  height: 0.2rem;
+  background-color: var(--white-txt-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.symbol-filter > div:before,
+.symbol-filter > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  width: 2rem;
+  height: 0.2rem;
+  background: inherit;
+}
+
+.symbol-filter > div:after {
+  top: 5px;
+  width: 0.7rem;
 }
