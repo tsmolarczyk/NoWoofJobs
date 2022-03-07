@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NoWoofJobs</title>
+    <link rel="icon" type="image/png" href="./assets/images/NWJ-fav.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,7 +44,7 @@
 
     <section class="section-search">
       <h1 class="welcome-text">
-        Top European IT Job Board, Salary in Every Ad.
+        Top European IT Job Board. Salary in Every Ad.
       </h1>
       <label class="search-label">
         <img
@@ -59,7 +60,7 @@
       </label>
 
       <button class="filters">
-        <div class="symbol-filter"><div></div></div>
+        <div class="symbol-filter"></div>
         Filtry
       </button>
     </section>
@@ -73,10 +74,10 @@
       <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
       <form class="section-add-job-form">
         <p>Company:</p>
-        <input type="text" />
-        <label>
+        <input class="input" type="text" />
+        <label class="input-seniority">
           <p>Seniority:</p>
-          <input list="seniority" name="seniority" class="input-seniority" />
+          <input list="seniority" name="seniority" class="input" />
           <datalist id="seniority">
             <option value="Junior"></option>
             <option value="Mid"></option>
@@ -84,23 +85,25 @@
           </datalist>
         </label>
         <p>Salary</p>
-        <input type="text" class="salary-from" />
-        <input type="text" class="salary-to" />
+        <input type="number" class="salary-from input" />
+        <input type="number" class="salary-to input" />
         <p>Contract Type</p>
-        <input type="text" class="contract-type" />
+        <input type="text" class="contract-type input" />
         <p class="benefits">Benefits</p>
-        <p class="benefits-para">Flexible Hours</p>
-        <input type="checkbox" class="flexible-hours" />
-        <p class="benefits-para">Private Healthcare</p>
-        <input type="checkbox" class="private-healthcare" />
-        <p class="benefits-para">Sport Card</p>
-        <input type="checkbox" class="sport-card" />
+        <div class="benefits-to-check">
+          <p class="benefits-para">Flexible Hours</p>
+          <input type="checkbox" class="flexible-hours checkbox input" />
+          <p class="benefits-para">Private Healthcare</p>
+          <input type="checkbox" class="private-healthcare checkbox input" />
+          <p class="benefits-para">Sport Card</p>
+          <input type="checkbox" class="sport-card checkbox input" />
+        </div>
         <p>Company name</p>
-        <input type="text" class="company-name" />
+        <input type="text" class="company-name input" />
         <p>Company city</p>
-        <input type="text" class="company-name" />
+        <input type="text" class="company-name input" />
         <p>Description</p>
-        <input type="text" class="description" />
+        <input type="text" class="description input" />
         <button class="btn-add">ADD</button>
       </form>
     </div>
