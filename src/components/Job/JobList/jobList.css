@@ -1,0 +1,16 @@
+.section-job-offers {
+  display: none;
+}
+
+.job-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
+
+.active {
+  display: flex;
+}

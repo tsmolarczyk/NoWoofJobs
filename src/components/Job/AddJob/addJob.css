@@ -1,7 +1,11 @@
 .section-add-job {
-  display: flex;
   flex-direction: column;
   align-items: center;
+  display: none;
+}
+
+.active {
+  display: flex;
 }
 
 .benefits-para {
@@ -50,6 +54,7 @@
 
 .input {
   width: 100%;
+  max-width: 400px;
 }
 
 .input-seniority {

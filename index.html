@@ -35,28 +35,17 @@
         src="./assets/images/NOWOOF.png"
         alt="noWoofJobs-logo"
       />
-
-      <div class="menu-wrap">
+      <div class="btns-section">
+        <button class="btn-goto-section btn-go-to-offers">Offers</button>
+        <button class="btn-goto-section btn-add-new-offer">
+          Add New Offer
+        </button>
+      </div>
+      <!-- <div class="menu-wrap">
         <i class="fa-solid fa-bars hamburger"></i>
-        <!-- <div class="hamburger"><div></div></div> -->
         <div class="menu">
-          <div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="topnav">
-        <a href="#home" class="active">Logo</a>
-        <div id="myLinks">
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
+        <div>
+      </div>   </div> -->
     </header>
 
     <section class="section-search">
@@ -76,10 +65,7 @@
         />
       </label>
       <i class="fa-solid fa-bars-filter symbol-filter"></i>
-      <button class="filters">
-        <!-- <div class="symbol-filter"></div> -->
-        Filtry
-      </button>
+      <button class="filters">Filtry</button>
       <i class="fa-solid fa-bars-filter"></i>
     </section>
     <!-- //zmienic na sekcje -->
@@ -128,12 +114,14 @@
 
     <div class="benefits-to-choose"></div>
 
-    <script src="./state.js"></script>
     <script src="./src/components/header/header.js"></script>
-    <script src="main.js"></script>
-    <script src="./fetchData.js"></script>
-    <script src="./src/components/addJob/addJob.js"></script>
-    <script src="./jobs.js"></script>
-    <script src="./categories.js"></script>
+    <script src="./src/fetchData.js"></script>
+    <script src="./src/state.js"></script>
+    <script src="./src/jobs.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/categories.js"></script>
+    <script src="./src/components/Job/AddJob/addJob.js"></script>
+    <script src="./src/components/Job/JobList/jobList.js"></script>
+    <script src="./src/components/Job/JobElement/jobElement.js"></script>
   </body>
 </html>

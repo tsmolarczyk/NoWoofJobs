@@ -1,15 +1,15 @@
 //'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
 
-const jobOffers = document.querySelector('.job-offers');
+// const jobOffers = document.querySelector('.job-offers');
 
 let newJob = {
-  title: 'string',
-  duration: 3,
-  description: 'fajno robota',
+  title: 'sklep',
+  duration: 1,
+  description: 'praca 5',
   thumb: 'yes',
-  company_name: 'string',
-  company_city: 'string',
-  seniority_id: 1,
+  company_name: 'IBM',
+  company_city: 'NY',
+  seniority_id: 3,
   category_ids: ['1', '2', '3'],
   benefit_ids: ['1', '2', '3'],
   contracts: [
@@ -54,7 +54,7 @@ function getJobs() {
 
       state.jobs = jobs;
 
-      // console.log(...jobs);
+      console.log(...jobs);
       return;
 
       // renderJobs();
