@@ -12,6 +12,7 @@ function getConfig() {
 }
 
 function render() {
+  const sectionJobOffers = document.querySelector('.selector-job-offers');
   // const -
   //     dodam klasy
   // append

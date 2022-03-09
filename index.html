@@ -45,6 +45,18 @@
           </div>
         </div>
       </div>
+
+      <div class="topnav">
+        <a href="#home" class="active">Logo</a>
+        <div id="myLinks">
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </header>
 
     <section class="section-search">
@@ -71,12 +83,12 @@
       <i class="fa-solid fa-bars-filter"></i>
     </section>
     <!-- //zmienic na sekcje -->
-    <div class="job-offers"></div>
+    <section class="section-job-offers"></section>
 
     <div class="categories"></div>
 
     <!-- //dodac BEM -->
-    <div class="section-add-job">
+    <section class="section-add-job">
       <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
       <form class="section-add-job-form">
         <p>Company:</p>
@@ -112,11 +124,12 @@
         <input type="text" class="description input" />
         <button class="btn-add">ADD</button>
       </form>
-    </div>
+    </section>
 
     <div class="benefits-to-choose"></div>
 
     <script src="./state.js"></script>
+    <script src="./src/components/header/header.js"></script>
     <script src="main.js"></script>
     <script src="./fetchData.js"></script>
     <script src="./src/components/addJob/addJob.js"></script>
