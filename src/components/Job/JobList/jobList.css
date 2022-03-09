@@ -14,3 +14,8 @@
 .active {
   display: flex;
 }
+
+.btn-delete {
+  background-color: red;
+  font-size: 20rem;
+}

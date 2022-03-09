@@ -1,3 +1,5 @@
+// import './views/offers/offers.js';
+
 function getConfig() {
   fetch('http://localhost:4000/config', {
     method: 'GET',
@@ -10,7 +12,7 @@ function getConfig() {
       render();
     });
 }
-
+// to delete
 function render() {
   const jobList = document.createElement('div');
   jobList.classList.add('job-list');
@@ -31,10 +33,25 @@ function render() {
     jobList.appendChild(jobElement);
     jobElement.appendChild(city);
     jobElement.appendChild(description);
-
-    //     dodam klasy
-    // append
-    // dodac valuecheckboxa to id -> state,
   });
 }
 getConfig();
+
+/*
+- components/
+  - header
+    - header.js
+    - header.css
+- views
+  - offers
+    - state.js 
+    - offers.js (renderOffers...)
+  - new-offer
+    - state.js 
+    - new-offer.js (renderForm...)
+- utils
+  - fetch-data.js
+
+- main.js
+
+*/

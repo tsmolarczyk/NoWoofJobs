@@ -68,20 +68,24 @@ function renderJobs() {
     const jobElement = document.createElement('div');
     const companyName = document.createElement('h1');
     const jobDescription = document.createElement('p');
+    const deleteBtn = document.createElement('button');
 
     //taking value
     companyName.textContent = job.company_name;
     jobDescription.textContent = job.description;
+    deleteBtn.innerHTML = 'delete offer';
 
     //adding classes
     jobElement.classList.add('job-element');
     companyName.classList.add('company-name');
     jobDescription.classList.add('job-desc');
+    deleteBtn.classList.add('btn-delete');
 
     //adding elements to DOM
     jobOffers.appendChild(jobElement);
     jobElement.appendChild(companyName);
     jobElement.appendChild(jobDescription);
+    jobElement.appendChild(deleteBtn);
   });
 }
 
