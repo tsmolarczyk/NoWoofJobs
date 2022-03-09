@@ -139,7 +139,7 @@ header {
 
 .symbol-filter {
   position: relative;
-
+  z-index: 1;
   left: -2.5em;
 }
 
