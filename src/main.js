@@ -38,6 +38,9 @@ function render() {
 getConfig();
 
 /*
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+https://www.w3schools.com/tags/att_label_for.asp
+
 - components/
   - header
     - header.js
