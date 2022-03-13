@@ -9,25 +9,29 @@ function getCategories() {
     let categories = data.data.categories;
     state.categories = categories;
 
-    console.log(categories);
+    console.log(...categories);
 
-    // renderCategories();
+    renderCategories();
   });
 }
 
 function renderCategories() {
+  const categoryList = document.createElement('div');
+  categoryList.classList.add('category-list');
+  categories.appendChild(categoryList);
+
   state.categories.forEach((category) => {
     //empty box
-    const categoryElement = document.createElement('div');
+    const categoryElement = document.createElement('button');
 
     //taking value
-    categories.textContent = category.categories;
+    categoryElement.textContent = category.name;
 
     //adding classes
     categoryElement.classList.add('category-element');
 
     //adding elements to DOM
-    categories.appendChild(categoryElement);
+    categoryList.appendChild(categoryElement);
   });
 }
 

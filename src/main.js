@@ -14,6 +14,7 @@ function getConfig() {
 }
 goToOffers();
 getConfig();
+getCategories();
 
 /*
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules

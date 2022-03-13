@@ -1,0 +1,29 @@
+.categories {
+  margin: 2rem;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.category-element {
+  margin: 0.5rem;
+  width: 14rem;
+}
+
+.job-element-city {
+  padding: 0 0.5rem;
+}
+.category-element:hover {
+  color: white;
+  background-color: var(--main-bg-color);
+  border: solid 1px white;
+  cursor: pointer;
+}
+
+.job-technologies-div {
+  color: red;
+  font-size: 2rem;
+}

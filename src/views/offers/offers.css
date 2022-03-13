@@ -11,10 +11,6 @@
   flex-wrap: wrap;
 }
 
-.active {
-  display: block;
-}
-
 .btn-delete {
   background-color: red;
   font-size: 2rem;
@@ -22,4 +18,19 @@
 
 .job-element {
   width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  padding: 0 0.5rem;
+}
+
+.company-name {
+  padding: 0.8rem 0.5rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.active {
+  display: block;
 }

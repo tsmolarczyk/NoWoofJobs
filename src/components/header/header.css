@@ -39,3 +39,8 @@ header {
   padding: 0.2rem;
   border: 1px red solid;
 }
+
+.job-element-description {
+  font-size: 1.3rem;
+  padding: 2rem 0.5rem;
+}
