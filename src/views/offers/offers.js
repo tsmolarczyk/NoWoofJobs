@@ -61,30 +61,29 @@ function getJobs() {
     }
   );
 }
+function render() {
+  const jobList = document.createElement('div');
+  jobList.classList.add('job-list');
+  sectionJobOffers.appendChild(jobList);
 
-function renderJobs() {
   state.jobs.forEach((job) => {
-    //empty box
     const jobElement = document.createElement('div');
-    const companyName = document.createElement('h1');
-    const jobDescription = document.createElement('p');
+    const city = document.createElement('p');
+    const description = document.createElement('p');
     const deleteBtn = document.createElement('button');
 
-    //taking value
-    companyName.textContent = job.company_name;
-    jobDescription.textContent = job.description;
+    city.textContent = job.company_city;
+    description.textContent = job.description;
     deleteBtn.innerHTML = 'delete offer';
 
-    //adding classes
     jobElement.classList.add('job-element');
-    companyName.classList.add('company-name');
-    jobDescription.classList.add('job-desc');
+    city.classList.add('job-element-city');
+    description.classList.add('job-element-description');
     deleteBtn.classList.add('btn-delete');
 
-    //adding elements to DOM
-    jobOffers.appendChild(jobElement);
-    jobElement.appendChild(companyName);
-    jobElement.appendChild(jobDescription);
+    jobList.appendChild(jobElement);
+    jobElement.appendChild(city);
+    jobElement.appendChild(description);
     jobElement.appendChild(deleteBtn);
   });
 }
