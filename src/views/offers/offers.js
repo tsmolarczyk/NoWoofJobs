@@ -3,25 +3,27 @@
 // const jobOffers = document.querySelector('.job-offers');
 
 let newJob = {
-  title: 'sklep',
+  title: 'Remote Frontend Developer',
   duration: 1,
-  description: 'praca 5',
+  description:
+    'We are a small team focused on code quality and system architecture, working on products - mostly international SaaS solutions. Our clients are well established start-ups with good market fit, willing to take the next step. We help them to scale, by providing good code, nice UX and technical consulting. We split monoliths, get rid of legacy code.',
   thumb: 'yes',
-  company_name: 'IBM',
-  company_city: 'NY',
-  seniority_id: 3,
-  category_ids: ['1', '2', '3'],
-  benefit_ids: ['1', '2', '3'],
+  company_name: 'Accesto',
+  company_city: 'Wrocław',
+  seniority_id: 2,
+  category_ids: ['1', '3', '13'],
+  benefit_ids: ['1', '2', '3', '4', '6'],
   contracts: [
     {
-      salary_from: '1000',
-      salary_to: '2000',
+      salary_from: '9000',
+      salary_to: '16000',
       contract_type_id: '1',
     },
   ],
 };
 
 function postNewJob() {
+  console.log('test');
   fetch('http://localhost:4000/offers/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -89,5 +91,5 @@ function render() {
 }
 
 getJobs();
-// deleteJob();
-// postNewJob();
+// deleteJob(17);
+postNewJob();

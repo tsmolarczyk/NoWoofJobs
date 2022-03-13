@@ -1,11 +1,10 @@
 .section-add-job {
-  flex-direction: column;
-  align-items: center;
   display: none;
 }
 
-.active {
+.section-add-container {
   display: flex;
+  flex-direction: column;
 }
 
 .benefits-para {
@@ -23,11 +22,12 @@
 }
 
 .section-add-job-title {
+  margin: 0 auto;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 .section-add-job-form {
-  width: 80%;
+  width: 100%;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
@@ -39,6 +39,11 @@
   width: 100%;
 }
 
+.section-add-job-form > label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .btn-add {
   margin: 0.4rem;
   width: 200px;
@@ -57,9 +62,7 @@
   max-width: 400px;
 }
 
-.input-seniority {
-  width: 100%;
+.form-labels {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }

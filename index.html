@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./src/components/header/header.css" />
+    <link rel="stylesheet" href="./src/components/search/search.css" />
     <link rel="stylesheet" href="./src/views/new-offer/new-offer.css" />
     <link rel="stylesheet" href="./src/views/offers/offers.css" />
   </head>
@@ -64,58 +65,78 @@
       <button class="filters">Filtry</button>
       <i class="fa-solid fa-bars-filter"></i>
     </section>
-    <!-- //zmienic na sekcje -->
+
     <section class="section-job-offers"></section>
 
     <div class="categories"></div>
 
-    <!-- //dodac BEM -->
     <section class="section-add-job">
-      <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
-      <form class="section-add-job-form">
-        <p>Company:</p>
-        <input class="input" type="text" />
-        <label class="input-seniority">
-          <p>Seniority:</p>
-          <input list="seniority" name="seniority" class="input" />
-          <!-- class -->
-          <datalist id="seniority">
-            <option value="Junior"></option>
-            <option value="Mid"></option>
-            <option value="Senior"></option>
-          </datalist>
-        </label>
-        <p>Salary</p>
-        <input type="number" class="salary-from input" />
-        <input type="number" class="salary-to input" />
-        <p>Contract Type</p>
-        <input type="text" class="contract-type input" />
-        <p class="benefits">Benefits</p>
-        <div class="benefits-to-check">
-          <p class="benefits-para">Flexible Hours</p>
-          <input type="checkbox" class="flexible-hours checkbox input" />
-          <p class="benefits-para">Private Healthcare</p>
-          <input type="checkbox" class="private-healthcare checkbox input" />
-          <p class="benefits-para">Sport Card</p>
-          <input type="checkbox" class="sport-card checkbox input" />
-        </div>
-        <p>Company name</p>
-        <input type="text" class="company-name input" />
-        <p>Company city</p>
-        <input type="text" class="company-name input" />
-        <p>Description</p>
-        <input type="text" class="description input" />
-        <button class="btn-add">ADD</button>
-      </form>
+      <div class="section-add-container">
+        <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
+        <form class="section-add-job-form">
+          <div class="form-labels">
+            <label>
+              <p>Company:</p>
+              <input class="input" type="text" />
+            </label>
+            <label>
+              <p>Seniority:</p>
+              <input list="seniority" name="seniority" class="input" />
+              <!-- class -->
+              <!-- <datalist id="seniority">
+              <option value="Junior"></option>
+              <option value="Mid"></option>
+              <option value="Senior"></option>
+            </datalist> -->
+            </label>
+            <label>
+              <p>Salary</p>
+              <input type="number" class="salary-from input" />
+              <input type="number" class="salary-to input" />
+            </label>
+            <label>
+              <p>Contract Type</p>
+              <input type="text" class="contract-type input" />
+            </label>
+            <label>
+              <p class="benefits">Benefits:</p>
+              <!-- <div class="benefits-to-check">
+              <p class="benefits-para">Flexible Hours</p>
+              <input type="checkbox" class="flexible-hours checkbox input" />
+              <p class="benefits-para">Private Healthcare</p>
+              <input
+                type="checkbox"
+                class="private-healthcare checkbox input"
+              />
+              <p class="benefits-para">Sport Card</p>
+              <input type="checkbox" class="sport-card checkbox input" />
+            </div> -->
+            </label>
+            <label>
+              <p>Company name</p>
+              <input type="text" class="company-name input" />
+            </label>
+            <label>
+              <p>Company city</p>
+              <input type="text" class="company-name input" />
+            </label>
+            <label>
+              <p>Description</p>
+              <input type="text" class="description input" />
+            </label>
+          </div>
+          <button class="btn-add">ADD</button>
+        </form>
+      </div>
     </section>
 
     <div class="benefits-to-choose"></div>
 
     <script src="./src/components/header/header.js"></script>
     <script src="./src/utils/fetch-data.js"></script>
-    <script src="./src/state.js"></script>
+    <script src="./src/utils/state.js"></script>
     <script src="./src/views/offers/offers.js"></script>
     <script type="module" src="./src/main.js"></script>
-    <script src="./src/categories.js"></script>
+    <script src="./src/views/offers/categories.js"></script>
   </body>
 </html>
