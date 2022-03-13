@@ -12,7 +12,7 @@ function getConfig() {
       render();
     });
 }
-
+goToOffers();
 getConfig();
 
 /*
