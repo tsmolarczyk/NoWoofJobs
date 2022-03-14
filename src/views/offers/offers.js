@@ -76,34 +76,28 @@ function render() {
     const title = document.createElement('p');
     const company = document.createElement('p');
     const city = document.createElement('p');
-    const description = document.createElement('p');
-    const jobTechnologies = document.createElement('div');
-    const deleteBtn = document.createElement('button');
+    const salaryFrom = document.createElement('p');
+    const salaryTo = document.createElement('p');
 
     title.textContent = job.title;
     company.textContent = job.company_name;
     city.textContent = job.company_city;
-    description.textContent = job.description;
-    jobTechnologies.textContent = job.categories
-      .map(({ name }) => name) // map, filter, forEach, some, every, reduce, find, findIndex, join, split
-      .join(', ');
-    deleteBtn.innerHTML = 'X';
+    salaryFrom.textContent = job.salary[0].salary_from;
+    salaryTo.textContent = job.salary[0].salary_to;
 
     jobElement.classList.add('job-element');
     title.classList.add('title');
     company.classList.add('company-name');
     city.classList.add('job-element-city');
-    description.classList.add('job-element-description');
-    jobTechnologies.classList.add('job-technologies-div');
-    deleteBtn.classList.add('btn-delete');
+    salaryTo.classList.add('salary-to');
+    salaryFrom.classList.add('salary-from');
 
     jobList.appendChild(jobElement);
-    jobElement.appendChild(deleteBtn);
     jobElement.appendChild(title);
     jobElement.appendChild(company);
     jobElement.appendChild(city);
-    jobElement.appendChild(jobTechnologies);
-    jobElement.appendChild(description);
+    jobElement.appendChild(salaryFrom);
+    jobElement.appendChild(salaryTo);
   });
 }
 

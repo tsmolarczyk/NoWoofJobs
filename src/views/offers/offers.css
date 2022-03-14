@@ -1,5 +1,7 @@
 .section-job-offers {
   display: none;
+  background-color: white;
+  color: black;
 }
 
 .job-list {
@@ -18,6 +20,8 @@
 
 .job-element {
   width: 100%;
+  margin-bottom: 2rem;
+  border: 0.1px rgb(243, 243, 243) solid;
 }
 
 .title {
@@ -29,6 +33,11 @@
   padding: 0.8rem 0.5rem;
   font-size: 1.5rem;
   text-decoration: underline;
+}
+
+.job-element-description {
+  font-size: 1.3rem;
+  padding: 2rem 0.5rem;
 }
 
 .active {
