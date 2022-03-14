@@ -1,6 +1,9 @@
 //'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
 
 // const jobOffers = document.querySelector('.job-offers');
+// requirejs / commonjs
+
+// import { fetchData } from '../../utils/fetch-data.js';
 
 let newJob = {
   title: 'Frontend Developer',
@@ -44,10 +47,11 @@ function deleteJob(id) {
   });
 }
 
-function getJobs() {
+function getJobs(id) {
   const params = new URLSearchParams();
-
-  // params.set('category', 1);
+  if (id !== undefined) {
+    params.set('category', id);
+  }
   params.set('limit', 100);
 
   fetchData('http://localhost:4000/offers?' + params.toString()).then(
@@ -57,13 +61,12 @@ function getJobs() {
       state.jobs = jobs;
 
       console.log(...jobs);
-      return;
-
       render();
     }
   );
 }
 function render() {
+  sectionJobOffers.innerHTML = '';
   const jobList = document.createElement('div');
   jobList.classList.add('job-list');
   sectionJobOffers.appendChild(jobList);
@@ -81,7 +84,9 @@ function render() {
     company.textContent = job.company_name;
     city.textContent = job.company_city;
     description.textContent = job.description;
-    jobTechnologies.textContent = job.categories.name;
+    jobTechnologies.textContent = job.categories
+      .map(({ name }) => name) // map, filter, forEach, some, every, reduce, find, findIndex, join, split
+      .join(', ');
     deleteBtn.innerHTML = 'X';
 
     jobElement.classList.add('job-element');
@@ -103,5 +108,5 @@ function render() {
 }
 
 getJobs();
-// deleteJob(30);
+// deleteJob(1);
 // postNewJob();

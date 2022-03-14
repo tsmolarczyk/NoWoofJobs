@@ -8,14 +8,14 @@ function getConfig() {
     .then((res) => res.json())
     .then(({ data }) => {
       state.config = data;
+      state.categories = data.categories;
       console.log(state.config);
+      renderCategories();
       render();
     });
 }
 goToOffers();
 getConfig();
-getCategories();
-
 /*
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 https://www.w3schools.com/tags/att_label_for.asp
