@@ -67,6 +67,13 @@ function getJobs(id) {
 }
 function render() {
   sectionJobOffers.innerHTML = '';
+
+  const offertsOfTheDay = document.createElement('h1');
+  offertsOfTheDay.textContent = 'OFERTY DNIA';
+  console.log(offertsOfTheDay);
+  offertsOfTheDay.classList.add('offerts-of-the-day');
+  sectionJobOffers.appendChild(offertsOfTheDay);
+
   const jobList = document.createElement('div');
   jobList.classList.add('job-list');
   sectionJobOffers.appendChild(jobList);
@@ -74,18 +81,24 @@ function render() {
   state.jobs.forEach((job) => {
     const jobElement = document.createElement('div');
     const title = document.createElement('p');
+    const jobElementInfo = document.createElement('div');
+    const jobElementLogo = document.createElement('div');
     const company = document.createElement('p');
     const city = document.createElement('p');
     const salaryFrom = document.createElement('p');
     const salaryTo = document.createElement('p');
 
     title.textContent = job.title;
+    jobElementInfo.textContent = '';
+    jobElementLogo.textContent = 'IMG';
     company.textContent = job.company_name;
     city.textContent = job.company_city;
     salaryFrom.textContent = job.salary[0].salary_from;
     salaryTo.textContent = job.salary[0].salary_to;
 
     jobElement.classList.add('job-element');
+    jobElementInfo.classList.add('job-element-info');
+    jobElementLogo.classList.add('job-element-logo');
     title.classList.add('title');
     company.classList.add('company-name');
     city.classList.add('job-element-city');
@@ -93,11 +106,13 @@ function render() {
     salaryFrom.classList.add('salary-from');
 
     jobList.appendChild(jobElement);
-    jobElement.appendChild(title);
-    jobElement.appendChild(company);
-    jobElement.appendChild(city);
-    jobElement.appendChild(salaryFrom);
-    jobElement.appendChild(salaryTo);
+    jobElement.appendChild(jobElementLogo);
+    jobElement.appendChild(jobElementInfo);
+    jobElementInfo.appendChild(title);
+    jobElementInfo.appendChild(company);
+    jobElementInfo.appendChild(city);
+    jobElementInfo.appendChild(salaryFrom);
+    jobElementInfo.appendChild(salaryTo);
   });
 }
 

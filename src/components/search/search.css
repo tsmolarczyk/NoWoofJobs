@@ -65,9 +65,10 @@
   border: 1px solid white;
   color: var(--grey-color);
   background-color: var(--main-bg-color);
-  width: 100%;
+  width: 35%;
   height: 4rem;
-  margin: 2rem auto;
+  margin: 1rem 4rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
