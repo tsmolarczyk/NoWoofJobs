@@ -4,6 +4,7 @@ const btnGoToAddOffer = document.querySelector('.btn-add-new-offer');
 const sectionJobOffers = document.querySelector('.section-job-offers');
 const sectionAddOffer = document.querySelector('.section-add-job');
 const section = document.querySelectorAll('.section');
+const navLogo = document.querySelector('.nav-logo');
 
 const goToAddOffer = function () {
   if (sectionJobOffers.classList.contains('active')) {
@@ -22,7 +23,6 @@ const goToOffers = function () {
 btnGoToOffers.addEventListener('click', goToOffers);
 btnGoToAddOffer.addEventListener('click', goToAddOffer);
 
-const navLogo = document.querySelector('.nav-logo');
 navLogo.addEventListener('click', () => {
   document.location.href = 'http://127.0.0.1:5501/';
 });
