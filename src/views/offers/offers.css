@@ -37,6 +37,7 @@
 
 .job-element-logo {
   flex: 1;
+  min-width: 8rem;
 }
 
 .job-element-info {

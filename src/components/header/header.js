@@ -21,3 +21,8 @@ const goToOffers = function () {
 
 btnGoToOffers.addEventListener('click', goToOffers);
 btnGoToAddOffer.addEventListener('click', goToAddOffer);
+
+const navLogo = document.querySelector('.nav-logo');
+navLogo.addEventListener('click', () => {
+  document.location.href = 'http://127.0.0.1:5501/';
+});

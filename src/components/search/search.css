@@ -79,3 +79,20 @@
   background-color: var(--grey-color);
   color: var(--main-bg-color);
 }
+
+.filters-extend {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .welcome-text {
+    font-size: 3rem;
+    line-height: 4.5rem;
+  }
+  .filters {
+    display: none;
+  }
+  .filters-extend {
+    display: inline-block;
+  }
+}

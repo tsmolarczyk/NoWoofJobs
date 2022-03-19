@@ -4,18 +4,26 @@ header {
   font-family: 'Poppins', 'Arial', sans-serif;
   background-color: var(--main-bg-color);
   height: 4rem;
-  border-bottom: 1px solid rgb(49, 52, 57);
   display: flex;
   justify-content: space-between;
 }
 
 .btn-goto-section {
-  margin: 0.4rem;
-  width: 10rem;
-  background-color: var(--white-txt-color);
-  color: var(--main-bg-color);
-  border: 2px solid black;
+  width: 20rem;
+  height: 100%;
+  border: none;
+  background: none;
+  background-color: var(--main-bg-color);
+  color: var(--white-txt-color);
+  border-left: 0.5px solid rgb(49, 52, 57);
   cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.btn-goto-section:hover {
+  border-bottom: 2px solid #1271ed;
 }
 
 .btn-goto-section:hover {
@@ -26,9 +34,20 @@ header {
 .nav-logo {
   margin-left: 1rem;
   height: 100%;
+  cursor: pointer;
 }
 
 .job-offers {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 992px) {
+  header {
+    height: 7rem;
+  }
+  .btn-goto-section {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
 }
