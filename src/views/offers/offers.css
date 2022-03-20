@@ -63,3 +63,13 @@
 .active {
   display: block;
 }
+
+@media (min-width: 992px) {
+  header {
+    height: 7rem;
+  }
+  .btn-goto-section {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+}
