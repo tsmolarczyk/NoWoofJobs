@@ -26,7 +26,6 @@ let newJob = {
 };
 
 function postNewJob() {
-  console.log('test');
   fetch('http://localhost:4000/offers/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -68,11 +67,10 @@ function getJobs(id) {
 function render() {
   sectionJobOffers.innerHTML = '';
 
-  const offertsOfTheDay = document.createElement('h1');
-  offertsOfTheDay.textContent = 'OFERTY DNIA';
-  console.log(offertsOfTheDay);
-  offertsOfTheDay.classList.add('offerts-of-the-day');
-  sectionJobOffers.appendChild(offertsOfTheDay);
+  const offersOfTheDay = document.createElement('h1');
+  offersOfTheDay.textContent = 'OFERTY DNIA';
+  offersOfTheDay.classList.add('offers-of-the-day');
+  sectionJobOffers.appendChild(offersOfTheDay);
 
   const jobList = document.createElement('div');
   jobList.classList.add('job-list');
@@ -80,38 +78,44 @@ function render() {
 
   state.jobs.forEach((job) => {
     const jobElement = document.createElement('div');
-    const title = document.createElement('p');
-    const jobElementInfo = document.createElement('div');
     const jobElementLogo = document.createElement('img');
+    const title = document.createElement('p');
     const company = document.createElement('p');
+    const categories = document.createElement('div');
+    const jobElementInfo = document.createElement('div');
     const city = document.createElement('p');
     const salaryFrom = document.createElement('p');
     const salaryTo = document.createElement('p');
 
-    title.textContent = job.title;
     jobElementLogo.src = '/assets/images/ant-logo.jpg';
+    title.textContent = job.title;
     company.textContent = job.company_name;
+    categories.textContent = job.categories.map((el) => {
+      el.toString;
+    });
     city.textContent = job.company_city;
     salaryFrom.textContent = job.salary[0].salary_from;
     salaryTo.textContent = job.salary[0].salary_to;
 
     jobElement.classList.add('job-element');
-    jobElementInfo.classList.add('job-element-info');
-    jobElementLogo.classList.add('job-element-logo');
     title.classList.add('title');
     company.classList.add('company-name');
+    categories.classList.add('categories');
+    jobElementInfo.classList.add('job-element-info');
+    jobElementLogo.classList.add('job-element-logo');
     city.classList.add('job-element-city');
     salaryTo.classList.add('salary-to');
     salaryFrom.classList.add('salary-from');
 
     jobList.appendChild(jobElement);
     jobElement.appendChild(jobElementLogo);
-    jobElement.appendChild(jobElementInfo);
     jobElementInfo.appendChild(title);
     jobElementInfo.appendChild(company);
-    jobElementInfo.appendChild(city);
+    jobElementInfo.appendChild(categories);
     jobElementInfo.appendChild(salaryFrom);
     jobElementInfo.appendChild(salaryTo);
+    jobElement.appendChild(jobElementInfo);
+    jobElementInfo.appendChild(city);
   });
 }
 
