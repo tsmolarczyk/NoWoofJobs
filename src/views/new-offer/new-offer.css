@@ -1,5 +1,7 @@
 .section-add-job {
   display: none;
+  background-color: var(--white-txt-color);
+  color: var(--main-bg-color);
 }
 
 .section-add-container {

@@ -5,7 +5,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem;
+  width: 80%;
+  margin: auto;
 }
 
 .welcome-text {
@@ -13,6 +14,7 @@
   font-size: 1.4rem;
   line-height: 1.8rem;
   padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .search-label {

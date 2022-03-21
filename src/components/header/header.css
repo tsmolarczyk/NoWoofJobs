@@ -46,6 +46,9 @@ header {
   header {
     height: 7rem;
   }
+  .nav-bar {
+    border-bottom: 0.5px solid rgb(49, 52, 57);
+  }
   .btn-goto-section {
     font-size: 1.5rem;
     font-weight: 100;

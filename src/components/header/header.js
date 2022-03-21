@@ -24,5 +24,5 @@ btnGoToOffers.addEventListener('click', goToOffers);
 btnGoToAddOffer.addEventListener('click', goToAddOffer);
 
 navLogo.addEventListener('click', () => {
-  document.location.href = 'http://127.0.0.1:5501/';
+  document.location.href = '/';
 });

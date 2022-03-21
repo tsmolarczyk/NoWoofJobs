@@ -82,15 +82,14 @@ function render() {
     const jobElement = document.createElement('div');
     const title = document.createElement('p');
     const jobElementInfo = document.createElement('div');
-    const jobElementLogo = document.createElement('div');
+    const jobElementLogo = document.createElement('img');
     const company = document.createElement('p');
     const city = document.createElement('p');
     const salaryFrom = document.createElement('p');
     const salaryTo = document.createElement('p');
 
     title.textContent = job.title;
-    jobElementInfo.textContent = '';
-    jobElementLogo.textContent = 'IMG';
+    jobElementLogo.src = '/assets/images/ant-logo.jpg';
     company.textContent = job.company_name;
     city.textContent = job.company_city;
     salaryFrom.textContent = job.salary[0].salary_from;
