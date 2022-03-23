@@ -15,6 +15,7 @@ function getConfig() {
     });
 }
 goToOffers();
+
 getConfig();
 /*
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
