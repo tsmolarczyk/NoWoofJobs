@@ -81,18 +81,17 @@ function render() {
     const jobElementLogo = document.createElement('img');
     const title = document.createElement('p');
     const company = document.createElement('p');
-    const categories = document.createElement('div');
+    const languages = document.createElement('div');
     const jobElementInfo = document.createElement('div');
     const city = document.createElement('p');
-    const salaryFrom = document.createElement('p');
-    const salaryTo = document.createElement('p');
+    const salaryFrom = document.createElement('span');
+    const salaryTo = document.createElement('span');
 
-    jobElementLogo.src = '/assets/images/ant-logo.jpg';
+    jobElementLogo.src = '/assets/images/no-img-logo.png';
     title.textContent = job.title;
     company.textContent = job.company_name;
-    categories.textContent = job.categories.map((el) => {
-      el.toString;
-    });
+    languages.textContent = job.categories.map(({ name }) => name).join(', ');
+
     city.textContent = job.company_city;
     salaryFrom.textContent = job.salary[0].salary_from;
     salaryTo.textContent = job.salary[0].salary_to;
@@ -100,7 +99,7 @@ function render() {
     jobElement.classList.add('job-element');
     title.classList.add('title');
     company.classList.add('company-name');
-    categories.classList.add('categories');
+    languages.classList.add('languages');
     jobElementInfo.classList.add('job-element-info');
     jobElementLogo.classList.add('job-element-logo');
     city.classList.add('job-element-city');
@@ -111,11 +110,11 @@ function render() {
     jobElement.appendChild(jobElementLogo);
     jobElementInfo.appendChild(title);
     jobElementInfo.appendChild(company);
-    jobElementInfo.appendChild(categories);
     jobElementInfo.appendChild(salaryFrom);
     jobElementInfo.appendChild(salaryTo);
-    jobElement.appendChild(jobElementInfo);
+    jobElementInfo.appendChild(languages);
     jobElementInfo.appendChild(city);
+    jobElement.appendChild(jobElementInfo);
   });
 }
 

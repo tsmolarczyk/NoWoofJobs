@@ -2,7 +2,7 @@
   display: none;
   background-color: white;
   color: black;
-  padding: 0 2rem;
+  padding: 0 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,27 +43,35 @@
 
 .job-element-logo {
   flex: 1;
-  min-height: 8rem;
-  min-width: 8rem;
+  max-height: 8rem;
+  max-width: 8rem;
   padding: 1rem;
+  margin: auto;
 }
 
 .job-element-info {
   flex: 10;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-  font-size: 1.4rem;
-  padding: 0 0.5rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 500;
 }
 
 .company-name {
-  padding: 0.8rem 0.5rem;
   font-size: 1.2rem;
   line-height: 1.8rem;
+  color: rgb(166, 166, 166);
 }
 .salary-from,
 .salary-to {
+  display: inline-block;
+}
+.languages {
   display: inline-block;
 }
 .salary-to::before {
@@ -83,12 +91,19 @@
 
 @media (min-width: 992px) {
   .section-job-offers {
-    margin: 0 auto;
+    padding: 2rem 12rem;
   }
-  .job-list {
+  /* .job-list {
     padding: 0 10rem;
   }
   .offerts-of-the-day {
     margin: 0 0 3rem 10rem;
+  } */
+}
+
+@media (max-width: 500px) {
+  .section-job-offers {
+    margin: 0.5rem;
+    padding: 0.5rem;
   }
 }
