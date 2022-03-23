@@ -4,3 +4,4 @@ let state = {
   config: {},
   categories: [],
 };
+export { state };

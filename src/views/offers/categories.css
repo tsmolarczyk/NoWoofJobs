@@ -1,7 +1,11 @@
 .categories {
   margin: 2rem;
+  display: none;
 }
 
+.active {
+  display: block;
+}
 .category-list {
   display: flex;
   justify-content: center;
@@ -21,6 +25,5 @@
 }
 
 .job-technologies-div {
-  color: red;
   font-size: 2rem;
 }

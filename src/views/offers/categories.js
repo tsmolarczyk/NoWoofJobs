@@ -1,4 +1,16 @@
+import { state } from '../../utils/state.js';
+import { getJobs } from './offers.js';
+
 const categories = document.querySelector('.categories');
+const filtersBtn = document.querySelector('.filters-btn');
+
+filtersBtn.addEventListener('click', function () {
+  categories.classList.toggle('active');
+});
+
+// if (window.innerWidth > 932) {
+//   console.log(innerWidth);
+// }
 
 function renderCategories() {
   const categoryList = document.createElement('div');
@@ -27,3 +39,5 @@ function filterCategory(id) {
   getJobs(id);
 }
 // fetchCategories();
+
+export { renderCategories };

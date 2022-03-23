@@ -3,7 +3,6 @@ const btnGoToAddOffer = document.querySelector('.btn-add-new-offer');
 
 const sectionJobOffers = document.querySelector('.section-job-offers');
 const sectionAddOffer = document.querySelector('.section-add-job');
-const section = document.querySelectorAll('.section');
 const navLogo = document.querySelector('.nav-logo');
 
 const goToAddOffer = function () {
@@ -26,3 +25,13 @@ btnGoToAddOffer.addEventListener('click', goToAddOffer);
 navLogo.addEventListener('click', () => {
   document.location.href = '/';
 });
+
+export {
+  btnGoToOffers,
+  btnGoToAddOffer,
+  sectionJobOffers,
+  sectionAddOffer,
+  navLogo,
+  goToAddOffer,
+  goToOffers,
+};

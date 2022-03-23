@@ -3,3 +3,5 @@ function fetchData(link) {
 
   return data;
 }
+
+export { fetchData };

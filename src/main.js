@@ -1,4 +1,7 @@
-// import './views/offers/offers.js';
+import { goToOffers } from './components/header/header.js';
+import { state } from './utils/state.js';
+import { renderCategories } from './views/offers/categories.js';
+import { render } from './views/offers/offers.js';
 
 function getConfig() {
   fetch('http://localhost:4000/config', {
