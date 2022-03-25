@@ -3,7 +3,6 @@
   background-color: white;
   color: black;
   padding: 0 6rem;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -35,7 +34,7 @@
 }
 
 .job-element:hover {
-  background-color: #fcfcfcd4;
+  background-color: #e0e0e0a3;
 }
 
 .job-element-logo {

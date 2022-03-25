@@ -35,18 +35,6 @@ let newJob = {
   ],
 };
 
-function postNewJob() {
-  fetch('http://localhost:4000/offers/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(newJob),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      state.jobs.push(data);
-      // console.log('Request complete! response:', res);
-    });
-}
 //id z formularza potem
 function deleteJob(id) {
   fetch(`http://localhost:4000/offers/${id}`, {
@@ -55,6 +43,18 @@ function deleteJob(id) {
     console.log('Request complete! response:', res);
   });
 }
+// category?: string
+// seniority?: string
+// salary_from?: string
+// salary_to?: string
+// contract_type?: string
+// benefits?: string
+// page?: string
+// limit?: string
+// order_by?: string
+// sort_direction?: string
+// search?: string
+// offerId ?: string
 
 function getJobs(id) {
   const params = new URLSearchParams();

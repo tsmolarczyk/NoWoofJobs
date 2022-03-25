@@ -1,4 +1,4 @@
-let state = {
+const state = {
   jobs: [],
   page: 1,
   config: {},

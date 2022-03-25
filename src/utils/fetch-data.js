@@ -5,3 +5,5 @@ function fetchData(link) {
 }
 
 export { fetchData };
+
+// dodac metode get, post
