@@ -1,6 +1,6 @@
 import { goToOffers } from './components/header/header.js';
 import { state } from './utils/state.js';
-import { renderCategories } from './views/offers/categories.js';
+import { renderCategories, renderSeniority } from './views/offers/filters.js';
 import { render } from './views/offers/offers.js';
 
 function getConfig() {
@@ -12,8 +12,10 @@ function getConfig() {
     .then(({ data }) => {
       state.config = data;
       state.categories = data.categories;
+      state.seniorities = data.seniorities;
       console.log(state.config);
       renderCategories();
+      renderSeniority();
       render();
     });
 }

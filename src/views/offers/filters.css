@@ -1,5 +1,5 @@
-.categories {
-  margin: 2rem;
+.filters {
+  margin: 8rem;
   display: none;
 }
 
@@ -12,12 +12,13 @@
 .category-list {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   flex-wrap: wrap;
   height: 100%;
 }
 .category-element {
   margin: 0.5rem;
-  width: 14rem;
+  width: 10rem;
 }
 
 .category-element:hover {
@@ -32,7 +33,7 @@
 }
 
 @media (min-width: 992px) {
-  .categories {
+  .filters {
     display: flex;
   }
 }
