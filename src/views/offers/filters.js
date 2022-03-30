@@ -1,5 +1,5 @@
 import { state } from '../../utils/state.js';
-import { getJobs } from './offers.js';
+import { getJobs, render } from './offers.js';
 
 const filters = document.querySelector('.filters');
 const filtersBtn = document.querySelector('.filters-btn');
@@ -9,27 +9,48 @@ filtersBtn.addEventListener('click', function () {
 });
 
 function renderCategories() {
+  const selectedFiltersCategories = state.selectedFilters.categories;
   const filterLanguage = document.querySelector('.filter-language');
   const categoryList = document.createElement('div');
   categoryList.classList.add('category-list');
   filterLanguage.appendChild(categoryList);
 
   state.categories.forEach((category) => {
-    //empty box
     const categoryElement = document.createElement('button');
 
-    //taking value
+    console.log(selectedFiltersCategories);
+    console.log(category.id);
     categoryElement.textContent = category.name;
 
-    //adding classes
     categoryElement.classList.add('category-element');
-    categoryElement.addEventListener('click', function () {
-      filterCategory(category.id);
-    });
 
-    //adding elements to DOM
+    categoryElement.addEventListener('click', function () {
+      console.log(selectedFiltersCategories);
+
+      console.log(category.id);
+      categoryElement.classList.toggle('set-filter-btn');
+      if (selectedFiltersCategories.includes(category.id)) {
+        console.log('usuwamy ten id');
+        let index = selectedFiltersCategories.indexOf(category.id);
+        if (index > -1) {
+          selectedFiltersCategories.splice(index, 1);
+          console.log(selectedFiltersCategories);
+        }
+      } else if (!selectedFiltersCategories.includes(category.id)) {
+        console.log('dodajemy id do listy filtrow');
+        selectedFiltersCategories.push(category.id);
+        console.log(selectedFiltersCategories);
+      }
+    });
     categoryList.appendChild(categoryElement);
+    console.log(selectedFiltersCategories);
   });
+}
+
+function filterCategory(id) {
+  console.log(id);
+  getJobs();
+  console.log(state.selectedFilters.categories);
 }
 
 function renderSeniority() {
@@ -40,10 +61,11 @@ function renderSeniority() {
 
   state.seniorities.forEach((seniority) => {
     const seniorityElement = document.createElement('button');
-    console.log('end of senioritie render');
-
     seniorityElement.textContent = seniority.name;
+
     seniorityElement.addEventListener('click', function () {
+      seniorityElement.classList.toggle('set-filter-btn');
+
       filterSeniority(seniority.id);
     });
 
@@ -51,12 +73,10 @@ function renderSeniority() {
   });
 }
 
-function filterCategory(id) {
-  getJobs(id);
-}
 function filterSeniority(id) {
-  getJobs(id);
+  state.selectedFilters.seniority = id;
+
+  getJobs();
 }
-// fetchCategories();
 
 export { renderCategories, renderSeniority };

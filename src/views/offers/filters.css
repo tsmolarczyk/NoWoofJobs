@@ -31,6 +31,9 @@
 .job-technologies-div {
   font-size: 2rem;
 }
+.set-filter-btn {
+  background-color: black;
+}
 
 @media (min-width: 992px) {
   .filters {

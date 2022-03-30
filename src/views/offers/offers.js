@@ -56,11 +56,16 @@ function deleteJob(id) {
 // search?: string
 // offerId ?: string
 
-function getJobs(id) {
+function getJobs() {
   const params = new URLSearchParams();
-  if (id !== undefined) {
-    params.set('category', id);
+  state.selectedFilters.categories.forEach((id) => {
+    params.append('category', id);
+  });
+
+  if (state.selectedFilters.seniority !== null) {
+    params.set('seniority', state.selectedFilters.seniority);
   }
+
   params.set('limit', 100);
 
   fetchData('http://localhost:4000/offers?' + params.toString()).then(
