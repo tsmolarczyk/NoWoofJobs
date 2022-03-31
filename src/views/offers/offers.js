@@ -61,6 +61,7 @@ function getJobs() {
   state.selectedFilters.categories.forEach((id) => {
     params.append('category', id);
   });
+  // params.append('category', id);
 
   if (state.selectedFilters.seniority !== null) {
     params.set('seniority', state.selectedFilters.seniority);
@@ -68,6 +69,7 @@ function getJobs() {
 
   params.set('limit', 100);
 
+  console.log(params.toString());
   fetchData('http://localhost:4000/offers?' + params.toString()).then(
     (data) => {
       let jobs = data.data.records;

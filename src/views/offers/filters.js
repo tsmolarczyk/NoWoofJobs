@@ -18,42 +18,37 @@ function renderCategories() {
   state.categories.forEach((category) => {
     const categoryElement = document.createElement('button');
 
-    console.log(selectedFiltersCategories);
-    console.log(category.id);
+    //zmieszane funkcje z renderem!!
     categoryElement.textContent = category.name;
 
     categoryElement.classList.add('category-element');
 
     categoryElement.addEventListener('click', function () {
-      console.log(selectedFiltersCategories);
-
       console.log(category.id);
       categoryElement.classList.toggle('set-filter-btn');
       if (selectedFiltersCategories.includes(category.id)) {
-        console.log('usuwamy ten id');
         let index = selectedFiltersCategories.indexOf(category.id);
         if (index > -1) {
           selectedFiltersCategories.splice(index, 1);
+          filterCategory(selectedFiltersCategories);
           console.log(selectedFiltersCategories);
         }
       } else if (!selectedFiltersCategories.includes(category.id)) {
-        console.log('dodajemy id do listy filtrow');
         selectedFiltersCategories.push(category.id);
-        console.log(selectedFiltersCategories);
+        filterCategory(selectedFiltersCategories);
       }
     });
     categoryList.appendChild(categoryElement);
-    console.log(selectedFiltersCategories);
   });
 }
 
-function filterCategory(id) {
-  console.log(id);
-  getJobs();
+function filterCategory() {
   console.log(state.selectedFilters.categories);
+  getJobs();
 }
 
 function renderSeniority() {
+  const selectedFiltersSeniority = state.selectedFilters.seniority;
   const filterExperience = document.querySelector('.filter-experience');
   const seniorityList = document.createElement('div');
   seniorityList.classList.add('seniority-list');
@@ -74,7 +69,9 @@ function renderSeniority() {
 }
 
 function filterSeniority(id) {
-  state.selectedFilters.seniority = id;
+  console.log(id);
+
+  state.selectedFilters.seniority.push(id);
 
   getJobs();
 }
