@@ -1,0 +1,10 @@
+.offer-modal {
+  /* position: fixed;
+  top: 30%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  background-color: red;
+  margin: 0 auto;
+  width: 40%;
+  height: 40rem;
+}

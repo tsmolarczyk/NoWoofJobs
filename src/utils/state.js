@@ -8,6 +8,7 @@ const state = {
     categories: [], // filters.categories.push(idCategory)
     seniority: null, // filters.seniorty = idSeniority
   },
+  modalOpen: false,
 };
 
 // const filters = {
