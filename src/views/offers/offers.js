@@ -5,15 +5,7 @@
 
 import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
-import {
-  btnGoToOffers,
-  btnGoToAddOffer,
-  sectionJobOffers,
-  sectionAddOffer,
-  navLogo,
-  goToAddOffer,
-  goToOffers,
-} from '../../components/header/header.js';
+import { sectionJobOffers } from '../../components/header/header.js';
 
 let newJob = {
   title: 'Frontend Developer',

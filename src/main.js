@@ -2,6 +2,7 @@ import { goToOffers } from './components/header/header.js';
 import { state } from './utils/state.js';
 import { renderCategories, renderSeniority } from './views/offers/filters.js';
 import { render } from './views/offers/offers.js';
+import { fetchByQuery } from './components/search/search.js';
 
 function getConfig() {
   fetch('http://localhost:4000/config', {
@@ -22,6 +23,7 @@ function getConfig() {
 goToOffers();
 
 getConfig();
+
 /*
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 https://www.w3schools.com/tags/att_label_for.asp

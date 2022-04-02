@@ -21,18 +21,17 @@
   width: 10rem;
 }
 
-.category-element:hover {
+.category-element:hover,
+.set-filter-btn {
   color: white;
   background-color: var(--main-bg-color);
   border: solid 1px white;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .job-technologies-div {
   font-size: 2rem;
-}
-.set-filter-btn {
-  background-color: black;
 }
 
 @media (min-width: 992px) {

@@ -9,7 +9,6 @@ filtersBtn.addEventListener('click', function () {
 });
 
 function renderCategories() {
-  const selectedFiltersCategories = state.selectedFilters.categories;
   const filterLanguage = document.querySelector('.filter-language');
   const categoryList = document.createElement('div');
   categoryList.classList.add('category-list');
@@ -26,29 +25,28 @@ function renderCategories() {
     categoryElement.addEventListener('click', function () {
       console.log(category.id);
       categoryElement.classList.toggle('set-filter-btn');
-      if (selectedFiltersCategories.includes(category.id)) {
-        let index = selectedFiltersCategories.indexOf(category.id);
-        if (index > -1) {
-          selectedFiltersCategories.splice(index, 1);
-          filterCategory(selectedFiltersCategories);
-          console.log(selectedFiltersCategories);
-        }
-      } else if (!selectedFiltersCategories.includes(category.id)) {
-        selectedFiltersCategories.push(category.id);
-        filterCategory(selectedFiltersCategories);
-      }
+
+      filterCategory(category.id);
     });
     categoryList.appendChild(categoryElement);
   });
 }
 
-function filterCategory() {
+function filterCategory(id) {
+  if (state.selectedFilters.categories.includes(id)) {
+    let index = state.selectedFilters.categories.indexOf(id);
+    if (index > -1) {
+      state.selectedFilters.categories.splice(index, 1);
+      console.log(state.selectedFilters.categories);
+    }
+  } else if (!state.selectedFilters.categories.includes(id)) {
+    state.selectedFilters.categories.push(id);
+  }
   console.log(state.selectedFilters.categories);
   getJobs();
 }
 
 function renderSeniority() {
-  const selectedFiltersSeniority = state.selectedFilters.seniority;
   const filterExperience = document.querySelector('.filter-experience');
   const seniorityList = document.createElement('div');
   seniorityList.classList.add('seniority-list');
@@ -70,7 +68,7 @@ function renderSeniority() {
 
 function filterSeniority(id) {
   console.log(id);
-
+  console.log(state.selectedFilters.seniority);
   state.selectedFilters.seniority.push(id);
 
   getJobs();
