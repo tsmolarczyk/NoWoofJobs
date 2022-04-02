@@ -6,6 +6,7 @@
 import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
 import { sectionJobOffers } from '../../components/header/header.js';
+import { openModal } from '../offers/modal.js';
 
 let newJob = {
   title: 'Frontend Developer',
@@ -47,6 +48,24 @@ function deleteJob(id) {
 // sort_direction?: string
 // search?: string
 // offerId ?: string
+
+function fetchOfferInfo(id) {
+  fetchData(`http://localhost:4000/offers?offerId=${id}`).then((data) => {
+    let jobs = data.data.records;
+
+    state.jobs = jobs;
+
+    console.log(...jobs);
+    openModal();
+  });
+}
+
+function handleOfferClick(id) {
+  if (state.modalOpened === true) {
+    return;
+  }
+  fetchOfferInfo(id);
+}
 
 function getJobs() {
   const params = new URLSearchParams();
@@ -124,6 +143,8 @@ function render() {
     jobElementInfo.appendChild(languages);
     jobElementInfo.appendChild(city);
     jobElement.appendChild(jobElementInfo);
+
+    jobElement.addEventListener('click', () => handleOfferClick(job.id));
   });
 }
 
