@@ -49,19 +49,18 @@ function deleteJob(id) {
 // search?: string
 // offerId ?: string
 
-function fetchOfferInfo(id) {
+export function fetchOfferInfo(id) {
   fetchData(`http://localhost:4000/offers?offerId=${id}`).then((data) => {
     let jobs = data.data.records;
 
     state.jobs = jobs;
-
     console.log(...jobs);
     openModal();
   });
 }
 
 function handleOfferClick(id) {
-  if (state.modalOpened === true) {
+  if (state.modalOpen === true) {
     return;
   }
   fetchOfferInfo(id);
@@ -77,6 +76,7 @@ function getJobs() {
   if (state.selectedFilters.seniority !== null) {
     params.set('seniority', state.selectedFilters.seniority);
   }
+  //
 
   params.set('limit', 100);
 

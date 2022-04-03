@@ -20,6 +20,9 @@ function getConfig() {
       render();
     });
 }
+
+// https://stackoverflow.com/questions/23699666/javascript-get-and-set-url-hash-parameters
+
 goToOffers();
 
 getConfig();

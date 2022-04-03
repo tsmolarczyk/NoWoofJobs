@@ -5,7 +5,6 @@ import { state } from '../../utils/state.js';
 const searchInputElement = document.querySelector('.search-input');
 
 searchInputElement.addEventListener('keyup', function () {
-  console.log('lol');
   fetchByQuery();
 });
 
@@ -22,3 +21,7 @@ export function fetchByQuery() {
     render();
   });
 }
+
+// components moga importowac utils
+// views moga importowac components i utils
+// utils moga importowac tylko utils

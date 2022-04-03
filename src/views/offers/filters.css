@@ -16,6 +16,11 @@
   flex-wrap: wrap;
   height: 100%;
 }
+
+.active-open-categories {
+  display: flex;
+}
+
 .category-element {
   margin: 0.5rem;
   width: 10rem;

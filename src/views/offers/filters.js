@@ -2,7 +2,9 @@ import { state } from '../../utils/state.js';
 import { getJobs, render } from './offers.js';
 
 const filters = document.querySelector('.filters');
+const filterBtnsBtn = document.querySelector('.filter-btns-btn');
 const filtersBtn = document.querySelector('.filters-btn');
+// const categoryList = document.querySelector('.category-list');
 
 filtersBtn.addEventListener('click', function () {
   filters.classList.toggle('active');
@@ -17,7 +19,6 @@ function renderCategories() {
   state.categories.forEach((category) => {
     const categoryElement = document.createElement('button');
 
-    //zmieszane funkcje z renderem!!
     categoryElement.textContent = category.name;
 
     categoryElement.classList.add('category-element');
@@ -67,11 +68,21 @@ function renderSeniority() {
 }
 
 function filterSeniority(id) {
+  if (state.selectedFilters.seniority !== null) {
+    state.selectedFilters.seniority = null;
+  } else {
+    state.selectedFilters.seniority = id;
+  }
   console.log(id);
   console.log(state.selectedFilters.seniority);
-  state.selectedFilters.seniority.push(id);
 
   getJobs();
 }
+
+filterBtnsBtn.addEventListener('click', function () {
+  console.log('should toggle categories');
+  console.log(categoryList);
+  categoryList.classList.toggle('active-open-categories');
+});
 
 export { renderCategories, renderSeniority };
