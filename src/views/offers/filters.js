@@ -4,7 +4,8 @@ import { getJobs, render } from './offers.js';
 const filters = document.querySelector('.filters');
 const filterBtnsBtn = document.querySelector('.filter-btns-btn');
 const filtersBtn = document.querySelector('.filters-btn');
-// const categoryList = document.querySelector('.category-list');
+const filterLanguage = document.querySelector('.filter-language');
+const categoryList = document.querySelector('.category-list');
 
 filtersBtn.addEventListener('click', function () {
   filters.classList.toggle('active');
@@ -30,6 +31,10 @@ function renderCategories() {
       filterCategory(category.id);
     });
     categoryList.appendChild(categoryElement);
+  });
+  filterLanguage.addEventListener('click', function () {
+    console.log(categoryList);
+    categoryList.classList.toggle('active-category-list');
   });
 }
 
@@ -57,6 +62,8 @@ function renderSeniority() {
     const seniorityElement = document.createElement('button');
     seniorityElement.textContent = seniority.name;
 
+    seniorityElement.classList.add('seniority-btn');
+
     seniorityElement.addEventListener('click', function () {
       seniorityElement.classList.toggle('set-filter-btn');
 
@@ -78,11 +85,6 @@ function filterSeniority(id) {
 
   getJobs();
 }
-
-filterBtnsBtn.addEventListener('click', function () {
-  console.log('should toggle categories');
-  console.log(categoryList);
-  categoryList.classList.toggle('active-open-categories');
-});
+console.log(categoryList);
 
 export { renderCategories, renderSeniority };

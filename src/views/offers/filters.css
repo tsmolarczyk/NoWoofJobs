@@ -1,6 +1,12 @@
 .filters {
   margin: 8rem;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filters-container {
+  /* display: none; */
 }
 
 .active {
@@ -10,11 +16,15 @@
 }
 
 .category-list {
-  display: flex;
+  display: none;
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
   height: 100%;
+}
+
+.active-category-list {
+  display: flex;
 }
 
 .active-open-categories {
