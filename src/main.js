@@ -21,30 +21,6 @@ function getConfig() {
     });
 }
 
-// https://stackoverflow.com/questions/23699666/javascript-get-and-set-url-hash-parameters
-
 goToOffers();
 
 getConfig();
-
-/*
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-https://www.w3schools.com/tags/att_label_for.asp
-
-- components/
-  - header
-    - header.js
-    - header.css
-- views
-  - offers
-    - state.js 
-    - offers.js (renderOffers...)
-  - new-offer
-    - state.js 
-    - new-offer.js (renderForm...)
-- utils
-  - fetch-data.js
-
-- main.js
-
-*/

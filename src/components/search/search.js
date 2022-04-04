@@ -1,4 +1,4 @@
-import { render } from '../../views/offers/offers.js';
+import { getJobs, render } from '../../views/offers/offers.js';
 import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
 
@@ -9,17 +9,11 @@ searchInputElement.addEventListener('keyup', function () {
 });
 
 export function fetchByQuery() {
-  const searchInput = document.querySelector('.search-input').value;
-  fetchData(
-    `http://localhost:4000/offers?limit=100?search=${searchInput}`
-  ).then((data) => {
-    let jobs = data.data.records;
-
-    state.jobs = jobs;
-
-    console.log(...jobs);
-    render();
-  });
+  if (searchInputElement.textContent !== null) {
+    console.log(searchInputElement.value);
+    state.querySearch = searchInputElement.value;
+  }
+  getJobs();
 }
 
 // components moga importowac utils

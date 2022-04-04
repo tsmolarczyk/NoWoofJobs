@@ -68,15 +68,19 @@ function handleOfferClick(id) {
 
 function getJobs() {
   const params = new URLSearchParams();
+
+  console.log(state.querySearch);
+  if (state.querySearch !== null) {
+    params.append('search', state.querySearch);
+  }
+
   state.selectedFilters.categories.forEach((id) => {
     params.append('category', id);
   });
-  // params.append('category', id);
 
   if (state.selectedFilters.seniority !== null) {
     params.set('seniority', state.selectedFilters.seniority);
   }
-  //
 
   params.set('limit', 100);
 

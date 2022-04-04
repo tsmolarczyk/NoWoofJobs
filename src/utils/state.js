@@ -4,6 +4,7 @@ const state = {
   config: {},
   categories: [],
   seniorities: [],
+  querySearch: null,
   selectedFilters: {
     categories: [], // filters.categories.push(idCategory)
     seniority: null, // filters.seniorty = idSeniority
