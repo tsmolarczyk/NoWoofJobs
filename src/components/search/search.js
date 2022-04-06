@@ -1,20 +1,20 @@
-import { getJobs, render } from '../../views/offers/offers.js';
-import { fetchData } from '../../utils/fetch-data.js';
+import { getJobs } from '../../views/offers/offers.js';
 import { state } from '../../utils/state.js';
 
 const searchInputElement = document.querySelector('.search-input');
 
-searchInputElement.addEventListener('keyup', function () {
-  fetchByQuery();
-});
-
-export function fetchByQuery() {
+function fetchByQuery() {
   if (searchInputElement.textContent !== null) {
-    console.log(searchInputElement.value);
     state.querySearch = searchInputElement.value;
   }
   getJobs();
 }
+
+searchInputElement.addEventListener('keyup', () => {
+  fetchByQuery();
+});
+
+export default fetchByQuery;
 
 // components moga importowac utils
 // views moga importowac components i utils

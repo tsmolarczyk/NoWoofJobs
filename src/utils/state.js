@@ -1,8 +1,11 @@
+/* eslint-disable import/prefer-default-export */
+
 const state = {
   jobs: [],
   page: 1,
   config: {},
   categories: [],
+  contracts: [],
   seniorities: [],
   querySearch: null,
   selectedFilters: {

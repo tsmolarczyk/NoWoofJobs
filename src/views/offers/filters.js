@@ -1,21 +1,45 @@
 import { state } from '../../utils/state.js';
-import { getJobs, render } from './offers.js';
+import { getJobs } from './offers.js';
+
+/*
+const companyNameInput = document.getElement...
+const submitButton = document.querySelector...
+const formElement = document.querySelector('form')
+
+liczba mnoga -> []  (tablica), np. offers, users
+liczba pojed. - obiekt, string, number, null, np. surname, amount
+                boolean - isActive, wasChecked, willExpire
+                        - active, checked
+
+funkcje, czasownik renderCategories, getOffers, setOffer
+
+zadnych i, k, blabla, tmp
+*/
 
 const filters = document.querySelector('.filters');
-const filterBtnsBtn = document.querySelector('.filter-btns-btn');
 const filtersBtn = document.querySelector('.filters-btn');
-const filterLanguage = document.querySelector('.filter-language');
-const categoryList = document.querySelector('.category-list');
 
-filtersBtn.addEventListener('click', function () {
+filtersBtn.addEventListener('click', () => {
   filters.classList.toggle('active');
 });
 
+function filterCategory(id) {
+  if (state.selectedFilters.categories.includes(id)) {
+    const index = state.selectedFilters.categories.indexOf(id);
+    if (index > -1) {
+      state.selectedFilters.categories.splice(index, 1);
+    }
+  } else if (!state.selectedFilters.categories.includes(id)) {
+    state.selectedFilters.categories.push(id);
+  }
+  getJobs();
+}
+
 function renderCategories() {
   const filterLanguage = document.querySelector('.filter-language');
-  const categoryList = document.createElement('div');
-  categoryList.classList.add('category-list');
-  filterLanguage.appendChild(categoryList);
+  const categoryListContainer = document.createElement('div');
+  categoryListContainer.classList.add('category-list');
+  filterLanguage.appendChild(categoryListContainer);
 
   state.categories.forEach((category) => {
     const categoryElement = document.createElement('button');
@@ -24,31 +48,35 @@ function renderCategories() {
 
     categoryElement.classList.add('category-element');
 
-    categoryElement.addEventListener('click', function () {
-      console.log(category.id);
+    categoryElement.addEventListener('click', () => {
       categoryElement.classList.toggle('set-filter-btn');
 
       filterCategory(category.id);
     });
-    categoryList.appendChild(categoryElement);
+    categoryListContainer.appendChild(categoryElement);
   });
-  filterLanguage.addEventListener('click', function () {
-    console.log(categoryList);
-    categoryList.classList.toggle('active-category-list');
+  filterLanguage.addEventListener('click', () => {
+    categoryListContainer.classList.toggle('active-category-list');
   });
 }
 
-function filterCategory(id) {
-  if (state.selectedFilters.categories.includes(id)) {
-    let index = state.selectedFilters.categories.indexOf(id);
-    if (index > -1) {
-      state.selectedFilters.categories.splice(index, 1);
-      console.log(state.selectedFilters.categories);
-    }
-  } else if (!state.selectedFilters.categories.includes(id)) {
-    state.selectedFilters.categories.push(id);
+// function renderContractType() {
+//   const filterContract = document.querySelector('.filter-contract');
+//   const contractTypeList = document.createElement('div');
+//   contractTypeList.classList.add('contract-type-list');
+
+//   state.contracts.forEach((contract) => {
+//     console.log('contracts here');
+//   });
+// }
+
+function filterSeniority(id) {
+  if (state.selectedFilters.seniority !== null) {
+    state.selectedFilters.seniority = null;
+  } else {
+    state.selectedFilters.seniority = id;
   }
-  console.log(state.selectedFilters.categories);
+
   getJobs();
 }
 
@@ -57,34 +85,28 @@ function renderSeniority() {
   const seniorityList = document.createElement('div');
   seniorityList.classList.add('seniority-list');
   filterExperience.appendChild(seniorityList);
+  const seniorityForm = document.createElement('form');
 
   state.seniorities.forEach((seniority) => {
-    const seniorityElement = document.createElement('button');
-    seniorityElement.textContent = seniority.name;
+    const seniorityElement = document.createElement('input');
+    const seniorityElementLabel = document.createElement('label');
 
+    seniorityElement.setAttribute('type', 'radio');
+    seniorityElement.setAttribute('name', 'seniority');
+    seniorityElementLabel.innerText = `${seniority.name} \xa0`;
     seniorityElement.classList.add('seniority-btn');
 
-    seniorityElement.addEventListener('click', function () {
+    seniorityElement.addEventListener('click', () => {
       seniorityElement.classList.toggle('set-filter-btn');
-
       filterSeniority(seniority.id);
+      // checked = false;
     });
 
-    seniorityList.appendChild(seniorityElement);
+    // seniorityList.appendChild(seniorityElement);
+    seniorityList.appendChild(seniorityForm);
+    seniorityForm.append(seniorityElement);
+    seniorityForm.append(seniorityElementLabel);
   });
 }
-
-function filterSeniority(id) {
-  if (state.selectedFilters.seniority !== null) {
-    state.selectedFilters.seniority = null;
-  } else {
-    state.selectedFilters.seniority = id;
-  }
-  console.log(id);
-  console.log(state.selectedFilters.seniority);
-
-  getJobs();
-}
-console.log(categoryList);
 
 export { renderCategories, renderSeniority };

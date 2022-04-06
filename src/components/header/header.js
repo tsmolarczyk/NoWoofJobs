@@ -5,14 +5,14 @@ const sectionJobOffers = document.querySelector('.section-job-offers');
 const sectionAddOffer = document.querySelector('.section-add-job');
 const navLogo = document.querySelector('.nav-logo');
 
-const goToAddOffer = function () {
+const goToAddOffer = () => {
   if (sectionJobOffers.classList.contains('active')) {
     sectionJobOffers.classList.remove('active');
   }
   sectionAddOffer.classList.add('active');
 };
 
-const goToOffers = function () {
+const goToOffers = () => {
   if (sectionAddOffer.classList.contains('active')) {
     sectionAddOffer.classList.remove('active');
   }

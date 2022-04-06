@@ -1,4 +1,4 @@
-//'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
+// 'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
 
 // const jobOffers = document.querySelector('.job-offers');
 // requirejs / commonjs
@@ -6,36 +6,36 @@
 import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
 import { sectionJobOffers } from '../../components/header/header.js';
-import { openModal } from '../offers/modal.js';
+import { openModal } from './modal.js';
 
-let newJob = {
-  title: 'Frontend Developer',
-  duration: 1,
-  description:
-    'We are currently searching for a motivated, Junior Frontend Developer to work within our growing web applications team. If you enjoy solving problems and you are an effective communicator that thrives in a team environment - we would love to hear from you!',
-  thumb: 'yes',
-  company_name: 'Ivarion',
-  company_city: 'Gdańsk',
-  seniority_id: 1,
-  category_ids: ['1', '2', '3', '5', '7'],
-  benefit_ids: ['1', '2', '4', '6'],
-  contracts: [
-    {
-      salary_from: '6600',
-      salary_to: '10200',
-      contract_type_id: '1',
-    },
-  ],
-};
+// const newJob = {
+//   title: 'Frontend Developer',
+//   duration: 1,
+//   description:
+//     'We are currently searching for a motivated, Junior Frontend Developer to work within our growing web applications team. If you enjoy solving problems and you are an effective communicator that thrives in a team environment - we would love to hear from you!',
+//   thumb: 'yes',
+//   company_name: 'Ivarion',
+//   company_city: 'Gdańsk',
+//   seniority_id: 1,
+//   category_ids: ['1', '2', '3', '5', '7'],
+//   benefit_ids: ['1', '2', '4', '6'],
+//   contracts: [
+//     {
+//       salary_from: '6600',
+//       salary_to: '10200',
+//       contract_type_id: '1',
+//     },
+//   ],
+// };
 
-//id z formularza potem
-function deleteJob(id) {
-  fetch(`http://localhost:4000/offers/${id}`, {
-    method: 'DELETE',
-  }).then((res) => {
-    console.log('Request complete! response:', res);
-  });
-}
+// id z formularza potem
+// function deleteJob(id) {
+//   fetch(`http://localhost:4000/offers/${id}`, {
+//     method: 'DELETE',
+//   }).then((res) => {
+//     console.log('Request complete! response:', res);
+//   });
+// }
 // category?: string
 // seniority?: string
 // salary_from?: string
@@ -51,10 +51,10 @@ function deleteJob(id) {
 
 export function fetchOfferInfo(id) {
   fetchData(`http://localhost:4000/offers?offerId=${id}`).then((data) => {
-    let jobs = data.data.records;
+    const jobs = data.data.records;
 
     state.jobs = jobs;
-    console.log(...jobs);
+    // console.log(...jobs);
     openModal();
   });
 }
@@ -64,37 +64,6 @@ function handleOfferClick(id) {
     return;
   }
   fetchOfferInfo(id);
-}
-
-function getJobs() {
-  const params = new URLSearchParams();
-
-  console.log(state.querySearch);
-  if (state.querySearch !== null) {
-    params.append('search', state.querySearch);
-  }
-
-  state.selectedFilters.categories.forEach((id) => {
-    params.append('category', id);
-  });
-
-  if (state.selectedFilters.seniority !== null) {
-    params.set('seniority', state.selectedFilters.seniority);
-  }
-
-  params.set('limit', 100);
-
-  console.log(params.toString());
-  fetchData('http://localhost:4000/offers?' + params.toString()).then(
-    (data) => {
-      let jobs = data.data.records;
-
-      state.jobs = jobs;
-
-      console.log(...jobs);
-      render();
-    }
-  );
 }
 function render() {
   sectionJobOffers.innerHTML = '';
@@ -150,6 +119,34 @@ function render() {
 
     jobElement.addEventListener('click', () => handleOfferClick(job.id));
   });
+}
+
+function getJobs() {
+  const params = new URLSearchParams();
+
+  if (state.querySearch !== null) {
+    params.append('search', state.querySearch);
+  }
+
+  state.selectedFilters.categories.forEach((id) => {
+    params.append('category', id);
+  });
+
+  if (state.selectedFilters.seniority !== null) {
+    params.set('seniority', state.selectedFilters.seniority);
+  }
+
+  params.set('limit', 100);
+
+  fetchData(`http://localhost:4000/offers?${params.toString()}`).then(
+    (data) => {
+      const jobs = data.data.records;
+
+      state.jobs = jobs;
+
+      render();
+    }
+  );
 }
 
 getJobs();

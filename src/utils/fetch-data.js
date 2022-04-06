@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 function fetchData(link) {
   const data = fetch(link).then((res) => res.json());
 
@@ -5,5 +7,3 @@ function fetchData(link) {
 }
 
 export { fetchData };
-
-// dodac metode get, post
