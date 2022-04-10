@@ -2,6 +2,7 @@
 
 const state = {
   jobs: [],
+  allJobs: [],
   page: 1,
   config: {},
   categories: [],
@@ -10,6 +11,7 @@ const state = {
   querySearch: null,
   selectedFilters: {
     categories: [], // filters.categories.push(idCategory)
+    contractType: null,
     seniority: null, // filters.seniorty = idSeniority
   },
   modalOpen: false,

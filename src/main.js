@@ -1,6 +1,10 @@
 import { goToOffers } from './components/header/header.js';
 import { state } from './utils/state.js';
-import { renderCategories, renderSeniority } from './views/offers/filters.js';
+import {
+  renderCategories,
+  renderContractType,
+  renderSeniority,
+} from './views/offers/filters.js';
 import { render } from './views/offers/offers.js';
 
 function getConfig() {
@@ -12,8 +16,10 @@ function getConfig() {
     .then(({ data }) => {
       state.config = data;
       state.categories = data.categories;
+      state.contracts = data.contract_types;
       state.seniorities = data.seniorities;
       renderCategories();
+      renderContractType();
       renderSeniority();
       render();
     });

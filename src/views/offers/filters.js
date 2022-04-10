@@ -1,29 +1,22 @@
 import { state } from '../../utils/state.js';
 import { getJobs } from './offers.js';
 
-/*
-const companyNameInput = document.getElement...
-const submitButton = document.querySelector...
-const formElement = document.querySelector('form')
-
-liczba mnoga -> []  (tablica), np. offers, users
-liczba pojed. - obiekt, string, number, null, np. surname, amount
-                boolean - isActive, wasChecked, willExpire
-                        - active, checked
-
-funkcje, czasownik renderCategories, getOffers, setOffer
-
-zadnych i, k, blabla, tmp
-*/
-
-const filters = document.querySelector('.filters');
+const filtersContainer = document.querySelector('.filters-container');
 const filtersBtn = document.querySelector('.filters-btn');
+const clearBtn = document.querySelector('.clear-btn');
 
 filtersBtn.addEventListener('click', () => {
-  filters.classList.toggle('active');
+  filtersContainer.classList.toggle('active');
+});
+clearBtn.addEventListener('click', () => {
+  state.selectedFilters.categories = [];
+  state.selectedFilters.contractType = null;
+  state.selectedFilters.seniority = null;
+  location.reload();
+  getJobs();
 });
 
-function filterCategory(id) {
+function filterCategories(id) {
   if (state.selectedFilters.categories.includes(id)) {
     const index = state.selectedFilters.categories.indexOf(id);
     if (index > -1) {
@@ -36,10 +29,13 @@ function filterCategory(id) {
 }
 
 function renderCategories() {
-  const filterLanguage = document.querySelector('.filter-language');
-  const categoryListContainer = document.createElement('div');
-  categoryListContainer.classList.add('category-list');
-  filterLanguage.appendChild(categoryListContainer);
+  const filterByLanguageContainer = document.querySelector(
+    '.filter-by-language-container'
+  );
+  const filterByLanguageBtn = document.querySelector('.filter-by-language-btn');
+  const categoriesList = document.createElement('div');
+  categoriesList.classList.add('categories-list');
+  filterByLanguageContainer.appendChild(categoriesList);
 
   state.categories.forEach((category) => {
     const categoryElement = document.createElement('button');
@@ -49,42 +45,79 @@ function renderCategories() {
     categoryElement.classList.add('category-element');
 
     categoryElement.addEventListener('click', () => {
-      categoryElement.classList.toggle('set-filter-btn');
+      categoryElement.classList.toggle('selected-category-element-btn');
 
-      filterCategory(category.id);
+      filterCategories(category.id);
     });
-    categoryListContainer.appendChild(categoryElement);
+    categoriesList.appendChild(categoryElement);
   });
-  filterLanguage.addEventListener('click', () => {
-    categoryListContainer.classList.toggle('active-category-list');
+  filterByLanguageBtn.addEventListener('click', () => {
+    categoriesList.classList.toggle('active-list');
   });
 }
 
-// function renderContractType() {
-//   const filterContract = document.querySelector('.filter-contract');
-//   const contractTypeList = document.createElement('div');
-//   contractTypeList.classList.add('contract-type-list');
+function filterContractType(id) {
+  state.selectedFilters.contractType = null;
+  state.selectedFilters.contractType = id;
 
-//   state.contracts.forEach((contract) => {
-//     console.log('contracts here');
-//   });
-// }
+  getJobs();
+}
+
+function renderContractType() {
+  const filterByContractTypeBtn = document.querySelector(
+    '.filter-by-contract-type-btn'
+  );
+  const filterByContractTypeContainer = document.querySelector(
+    '.filter-by-contract-type-container'
+  );
+  const contractTypeList = document.createElement('div');
+  contractTypeList.classList.add('contract-type-list');
+  filterByContractTypeContainer.appendChild(contractTypeList);
+  const contractForm = document.createElement('form');
+
+  state.contracts.forEach((contract) => {
+    const contractElement = document.createElement('input');
+    const contractElementLabel = document.createElement('label');
+
+    contractElement.setAttribute('type', 'radio');
+    contractElement.setAttribute('name', 'contract');
+
+    contractElementLabel.innerText = `${contract.name} \xa0`;
+    contractTypeList.appendChild(contractForm);
+    contractForm.append(contractElement);
+    contractForm.append(contractElementLabel);
+
+    contractElement.addEventListener('click', () => {
+      filterContractType(contract.id);
+      // checked = false;
+    });
+
+    filterByContractTypeBtn.addEventListener('click', () => {
+      contractTypeList.classList.toggle('active-list');
+    });
+  });
+}
 
 function filterSeniority(id) {
-  if (state.selectedFilters.seniority !== null) {
-    state.selectedFilters.seniority = null;
-  } else {
-    state.selectedFilters.seniority = id;
-  }
+  // if (state.selectedFilters.seniority !== null) {
+  //   state.selectedFilters.seniority = null;
+  // } else {
+  state.selectedFilters.seniority = null;
+  state.selectedFilters.seniority = id;
 
   getJobs();
 }
 
 function renderSeniority() {
-  const filterExperience = document.querySelector('.filter-experience');
+  const filterBySeniorityBtn = document.querySelector(
+    '.filter-by-seniority-btn'
+  );
+  const filterBySeniorityContainer = document.querySelector(
+    '.filter-by-seniority-container'
+  );
   const seniorityList = document.createElement('div');
   seniorityList.classList.add('seniority-list');
-  filterExperience.appendChild(seniorityList);
+  filterBySeniorityContainer.appendChild(seniorityList);
   const seniorityForm = document.createElement('form');
 
   state.seniorities.forEach((seniority) => {
@@ -97,9 +130,12 @@ function renderSeniority() {
     seniorityElement.classList.add('seniority-btn');
 
     seniorityElement.addEventListener('click', () => {
-      seniorityElement.classList.toggle('set-filter-btn');
       filterSeniority(seniority.id);
+
       // checked = false;
+    });
+    filterBySeniorityBtn.addEventListener('click', () => {
+      seniorityList.classList.toggle('active-list');
     });
 
     // seniorityList.appendChild(seniorityElement);
@@ -109,4 +145,4 @@ function renderSeniority() {
   });
 }
 
-export { renderCategories, renderSeniority };
+export { renderCategories, renderContractType, renderSeniority };

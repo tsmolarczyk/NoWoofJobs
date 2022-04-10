@@ -7,26 +7,7 @@ import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
 import { sectionJobOffers } from '../../components/header/header.js';
 import { openModal } from './modal.js';
-
-// const newJob = {
-//   title: 'Frontend Developer',
-//   duration: 1,
-//   description:
-//     'We are currently searching for a motivated, Junior Frontend Developer to work within our growing web applications team. If you enjoy solving problems and you are an effective communicator that thrives in a team environment - we would love to hear from you!',
-//   thumb: 'yes',
-//   company_name: 'Ivarion',
-//   company_city: 'Gdańsk',
-//   seniority_id: 1,
-//   category_ids: ['1', '2', '3', '5', '7'],
-//   benefit_ids: ['1', '2', '4', '6'],
-//   contracts: [
-//     {
-//       salary_from: '6600',
-//       salary_to: '10200',
-//       contract_type_id: '1',
-//     },
-//   ],
-// };
+// import { postNewJob, jobadd } from '../../views/new-offer/new-offer.js';
 
 // id z formularza potem
 // function deleteJob(id) {
@@ -66,6 +47,17 @@ function handleOfferClick(id) {
   fetchOfferInfo(id);
 }
 function render() {
+  if (state.allJobs.length === 0) {
+    state.allJobs = state.jobs;
+  }
+
+  const searchInputElement = document.querySelector('.search-input');
+  console.log(state.allJobs.length);
+  searchInputElement.setAttribute(
+    'placeholder',
+    `Uzywaj tagów i szukaj wśród ${state.allJobs.length} ofert!`
+  );
+
   sectionJobOffers.innerHTML = '';
 
   const offersOfTheDay = document.createElement('h1');
@@ -132,11 +124,17 @@ function getJobs() {
     params.append('category', id);
   });
 
+  if (state.selectedFilters.contractType !== null) {
+    params.set('contract_type', state.selectedFilters.contractType);
+  }
+
   if (state.selectedFilters.seniority !== null) {
     params.set('seniority', state.selectedFilters.seniority);
   }
 
   params.set('limit', 100);
+
+  console.log(`http://localhost:4000/offers?${params.toString()}`);
 
   fetchData(`http://localhost:4000/offers?${params.toString()}`).then(
     (data) => {
@@ -148,8 +146,9 @@ function getJobs() {
     }
   );
 }
-
 getJobs();
+
+// postNewJob();
 // deleteJob(1);
 // postNewJob();
 

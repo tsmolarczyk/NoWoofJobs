@@ -3,6 +3,8 @@ import { state } from '../../utils/state.js';
 
 const searchInputElement = document.querySelector('.search-input');
 
+searchInputElement.setAttribute('placeholder', 'dwa');
+
 function fetchByQuery() {
   if (searchInputElement.textContent !== null) {
     state.querySearch = searchInputElement.value;
