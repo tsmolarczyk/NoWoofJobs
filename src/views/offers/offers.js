@@ -52,7 +52,6 @@ function render() {
   }
 
   const searchInputElement = document.querySelector('.search-input');
-  console.log(state.allJobs.length);
   searchInputElement.setAttribute(
     'placeholder',
     `Uzywaj tagów i szukaj wśród ${state.allJobs.length} ofert!`
@@ -133,8 +132,6 @@ function getJobs() {
   }
 
   params.set('limit', 100);
-
-  console.log(`http://localhost:4000/offers?${params.toString()}`);
 
   fetchData(`http://localhost:4000/offers?${params.toString()}`).then(
     (data) => {

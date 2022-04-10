@@ -11,6 +11,7 @@
     "import/extensions": "off",
     "max-len": "off",
     "comma-dangle": "off",
-    "prefer-default-export": "off"
+    "prefer-default-export": "off",
+    "no-restricted-globals": "off"
   }
 }
