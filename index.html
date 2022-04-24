@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="./src/views/new-offer/new-offer.css" />
     <link rel="stylesheet" href="./src/views/offers/offers.css" />
     <link rel="stylesheet" href="./src/views/offers/filters.css" />
-    <link rel="stylesheet" href="./src/views/offers/modal.css" />
+    <link rel="stylesheet" href="./src/views/offers/offer-modal.css" />
   </head>
 
   <body>
@@ -40,11 +40,6 @@
           Add New Offer
         </button>
       </div>
-      <!-- <div class="menu-wrap">
-        <i class="fa-solid fa-bars hamburger"></i>
-        <div class="menu">
-        <div>
-      </div>   </div> -->
     </header>
 
     <section class="section-search">
@@ -77,9 +72,7 @@
             Lokalizacje
           </button>
         </div>
-        <div class="filter-by-salary-container">
-          <button class="filter-by-salary-btn filter-btn">Wynagrodzenie</button>
-        </div>
+
         <div class="filter-by-contract-type-container">
           <button class="filter-by-contract-type-btn filter-btn">
             Typ umowy
@@ -100,54 +93,6 @@
     <section class="section-add-job">
       <div class="section-add-container">
         <h2 class="section-add-job-title">ADD NEW JOB RECORD</h2>
-        <form class="section-add-job-form">
-          <div class="form-labels">
-            <label>
-              <p>Company:</p>
-              <input class="input" type="text" />
-            </label>
-            <label>
-              <p>Seniority:</p>
-              <input list="seniority" name="seniority" class="input" />
-            </label>
-            <label>
-              <p>Salary</p>
-              <input type="number" class="salary-from input" />
-              <input type="number" class="salary-to input" />
-            </label>
-            <label>
-              <p>Contract Type</p>
-              <input type="text" class="contract-type input" />
-            </label>
-            <label>
-              <p class="benefits">Benefits:</p>
-              <!-- <div class="benefits-to-check">
-              <p class="benefits-para">Flexible Hours</p>
-              <input type="checkbox" class="flexible-hours checkbox input" />
-              <p class="benefits-para">Private Healthcare</p>
-              <input
-                type="checkbox"
-                class="private-healthcare checkbox input"
-              />
-              <p class="benefits-para">Sport Card</p>
-              <input type="checkbox" class="sport-card checkbox input" />
-            </div> -->
-            </label>
-            <label>
-              <p>Company name</p>
-              <input type="text" class="company-name input" />
-            </label>
-            <label>
-              <p>Company city</p>
-              <input type="text" class="company-name input" />
-            </label>
-            <label>
-              <p>Description</p>
-              <input type="text" class="description input" />
-            </label>
-          </div>
-          <button class="btn-add">ADD</button>
-        </form>
       </div>
     </section>
 

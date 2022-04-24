@@ -1,24 +1,29 @@
 .offer-modal {
-  position: fixed;
   display: none;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: red;
-  margin: 0 auto;
-  width: 50%;
-  height: 20rem;
+
+  /* transform: translate(-50%, -50%); */
+  background-color: white;
+  color: black;
+  margin: 10rem auto;
+  width: 80vw;
+  height: 100vh;
 }
 
 .active-modal {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.offer-modal-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
 }
 
 .close-btn {
-  position: absolute;
-  top: 0;
-  right: 2%;
-  padding: 0;
+  height: 5rem;
+  left: 1rem;
   transition: transform 0.25s, opacity 0.25s;
   opacity: 1;
   background-color: transparent;
@@ -37,4 +42,8 @@
 .close-btn:hover {
   opacity: 1;
   transform: rotate(90deg);
+}
+
+.section-job-offer-hide {
+  display: none;
 }

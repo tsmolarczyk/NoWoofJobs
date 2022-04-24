@@ -2,13 +2,15 @@ import { goToOffers } from './components/header/header.js';
 import { state } from './utils/state.js';
 import {
   renderCategories,
+  renderLocalization,
   renderContractType,
   renderSeniority,
 } from './views/offers/filters.js';
 import { render } from './views/offers/offers.js';
+import './components/search/search.js';
 
 function getConfig() {
-  fetch('http://localhost:4000/config', {
+  fetch('http://192.168.1.5:4000/config', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   })
@@ -20,6 +22,7 @@ function getConfig() {
       state.seniorities = data.seniorities;
       renderCategories();
       renderContractType();
+      renderLocalization();
       renderSeniority();
       render();
     });

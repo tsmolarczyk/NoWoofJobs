@@ -1,10 +1,58 @@
-// import { state } from '../../utils/state.js';
+function rednerAddOfferForm() {
+  const sectionAddContainer = document.querySelector('.section-add-container');
+  const addOfferForm = document.createElement('div');
+  const addOfferLabel = document.createElement('label');
+  const companyPar = document.createElement('p');
+  const companyInput = document.createElement('input');
+
+  companyPar.textContent = 'lol';
+
+  sectionAddContainer.appendChild(addOfferForm);
+  addOfferForm.appendChild(addOfferLabel);
+  addOfferLabel.appendChild(companyPar);
+  addOfferLabel.appendChild(companyInput);
+}
+// <div class="form-labels">
+//             <label>
+//             <p>Company:</p>
+//             <input class="input" type="text" />
+//             </label>
+//             <label>
+//             <p>Seniority:</p>
+//             <input list="seniority" name="seniority" class="input" />
+//             </label>
+//             <label>
+//             <p>Salary</p>
+//             <input type="number" class="salary-from input" />
+//             <input type="number" class="salary-to input" />
+//             </label>
+//             <label>
+//             <p>Contract Type</p>
+//             <input type="text" class="contract-type input" />
+//             </label>
+//             <label>
+//             <p class="benefits">Benefits:</p>
+//             </label>
+//             <label>
+//             <p>Company name</p>
+//             <input type="text" class="company-name input" />
+//             </label>
+//             <label>
+//             <p>Company city</p>
+//             <input type="text" class="company-name input" />
+//             </label>
+//             <label>
+//             <p>Description</p>
+//             <input type="text" class="description input" />
+//             </label>
+//         </div>
+//         <button class="add-new-offer-btn">ADD</button>
 
 // const jobadd = {
 //   title: 'Software Engineer Intern (Java)',
 //   duration: 1,
 //   description:
-//     'What might you encounter on one of our projectAdobe Experience Manager based platforms written in Java Complex and distributed architectures based on open-source solutions and lightweight technologies like RxJava, Vert.x and Consul',
+//     'What might you encounter on one of... ',
 //   thumb: 'yes',
 //   company_name: 'Wunderman Thompson Technology',
 //   company_city: 'Bydgoszcz',
@@ -32,7 +80,13 @@
 //       console.log(state.jobs);
 //     });
 // }
+// const addNewOfferBtn = document.querySelector('.add-new-offer-btn');
+// addNewOfferBtn.addEventListener(
+//   'click',
+//   posNewJob,
 
-// postNewJob(jobadd);
+//   // postNewJob(
+// );
 
+export { rednerAddOfferForm };
 // export { postNewJob, jobadd };

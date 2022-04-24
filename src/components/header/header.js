@@ -1,3 +1,5 @@
+import { rednerAddOfferForm } from '../../views/new-offer/new-offer.js';
+
 const btnGoToOffers = document.querySelector('.btn-go-to-offers');
 const btnGoToAddOffer = document.querySelector('.btn-add-new-offer');
 
@@ -5,19 +7,20 @@ const sectionJobOffers = document.querySelector('.section-job-offers');
 const sectionAddOffer = document.querySelector('.section-add-job');
 const navLogo = document.querySelector('.nav-logo');
 
-const goToAddOffer = () => {
-  if (sectionJobOffers.classList.contains('active')) {
-    sectionJobOffers.classList.remove('active');
+const goToOffers = () => {
+  if (sectionJobOffers.classList.contains('hide-offer-add')) {
+    sectionJobOffers.classList.remove('hide-offer-add');
   }
-  sectionAddOffer.classList.add('active');
+  sectionAddOffer.classList.add('hide-offer-list');
 };
 
-const goToOffers = () => {
-  if (sectionAddOffer.classList.contains('active')) {
-    sectionAddOffer.classList.remove('active');
+const goToAddOffer = () => {
+  if (sectionAddOffer.classList.contains('hide-offer-list')) {
+    sectionAddOffer.classList.remove('hide-offer-list');
   }
-  sectionJobOffers.classList.add('active');
+  sectionJobOffers.classList.add('hide-offer-add');
 };
+rednerAddOfferForm();
 
 btnGoToOffers.addEventListener('click', goToOffers);
 btnGoToAddOffer.addEventListener('click', goToAddOffer);

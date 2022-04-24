@@ -1,5 +1,5 @@
 .section-job-offers {
-  display: none;
+  display: flex;
   background-color: white;
   color: black;
   padding: 0 6rem;
@@ -9,21 +9,11 @@
 
 .job-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.offers-of-the-day {
-  font-size: 2rem;
-  line-height: 2.4rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-  border-bottom: solid 4px #1271ed;
+  flex-direction: column;
+  width: 100%;
 }
 
 .job-element {
-  width: 100%;
   display: flex;
   margin-bottom: 0.05rem;
   margin-bottom: 1rem;
@@ -83,6 +73,7 @@
 
 @media (min-width: 992px) {
   .section-job-offers {
+    display: flex;
     padding: 2rem 12rem;
   }
   /* .job-list {

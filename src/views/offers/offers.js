@@ -1,12 +1,8 @@
-// 'http://localhost:4000/offers?page=2&limit=10&orderBy=id&direction=desc'
-
-// const jobOffers = document.querySelector('.job-offers');
-// requirejs / commonjs
-
 import { fetchData } from '../../utils/fetch-data.js';
 import { state } from '../../utils/state.js';
 import { sectionJobOffers } from '../../components/header/header.js';
-import { openModal } from './modal.js';
+import { handleOfferClick } from './offer-modal.js';
+
 // import { postNewJob, jobadd } from '../../views/new-offer/new-offer.js';
 
 // id z formularza potem
@@ -17,35 +13,7 @@ import { openModal } from './modal.js';
 //     console.log('Request complete! response:', res);
 //   });
 // }
-// category?: string
-// seniority?: string
-// salary_from?: string
-// salary_to?: string
-// contract_type?: string
-// benefits?: string
-// page?: string
-// limit?: string
-// order_by?: string
-// sort_direction?: string
-// search?: string
-// offerId ?: string
 
-export function fetchOfferInfo(id) {
-  fetchData(`http://localhost:4000/offers?offerId=${id}`).then((data) => {
-    const jobs = data.data.records;
-
-    state.jobs = jobs;
-    // console.log(...jobs);
-    openModal();
-  });
-}
-
-function handleOfferClick(id) {
-  if (state.modalOpen === true) {
-    return;
-  }
-  fetchOfferInfo(id);
-}
 function render() {
   if (state.allJobs.length === 0) {
     state.allJobs = state.jobs;
@@ -54,14 +22,12 @@ function render() {
   const searchInputElement = document.querySelector('.search-input');
   searchInputElement.setAttribute(
     'placeholder',
-    `Uzywaj tagów i szukaj wśród ${state.allJobs.length} ofert!`
+    `Uzywaj tagów i szukaj wśród ${state.allJobs.length} ofert!`,
   );
 
   sectionJobOffers.innerHTML = '';
 
   const offersOfTheDay = document.createElement('h1');
-  offersOfTheDay.textContent = 'OFERTY DNIA';
-  offersOfTheDay.classList.add('offers-of-the-day');
   sectionJobOffers.appendChild(offersOfTheDay);
 
   const jobList = document.createElement('div');
@@ -127,26 +93,27 @@ function getJobs() {
     params.set('contract_type', state.selectedFilters.contractType);
   }
 
+  if (state.selectedFilters.localization !== null) {
+    params.set('search', state.selectedFilters.localization);
+  }
+
   if (state.selectedFilters.seniority !== null) {
     params.set('seniority', state.selectedFilters.seniority);
   }
 
   params.set('limit', 100);
 
-  fetchData(`http://localhost:4000/offers?${params.toString()}`).then(
+  fetchData(`http://192.168.1.5:4000/offers?${params.toString()}`).then(
     (data) => {
       const jobs = data.data.records;
 
       state.jobs = jobs;
-
       render();
-    }
+    },
   );
 }
 getJobs();
 
-// postNewJob();
-// deleteJob(1);
 // postNewJob();
 
 export { render, getJobs };
